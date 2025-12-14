@@ -1,0 +1,21 @@
+patient_id,doctor_id,date_appointment,duration,appointment_type,state,note
+Mehdi BOUAZIZI,Dr. Ahmed ALAMI,2025-12-11 09:00:00,0.5,consultation,confirmed,Consultation de contrôle cardiaque
+Zineb AMRANI,Dr. Fatima BENNANI,2025-12-11 10:00:00,0.5,checkup,confirmed,Examen pédiatrique de routine
+Said MOUSSAOUI,Dr. Mohammed CHAKIR,2025-12-11 14:00:00,1.0,consultation,confirmed,Consultation pré-opératoire
+Imane CHRAIBI,Dr. Samira IDRISSI,2025-12-12 09:00:00,0.5,followup,confirmed,Suivi post-opératoire genou
+Hamza EL IDRISSI,Dr. Youssef TAZI,2025-12-12 11:00:00,0.75,consultation,confirmed,Consultation gynécologique
+Soukaina BENALI,Dr. Khadija FILALI,2025-12-11 08:00:00,0.5,emergency,done,Urgence - Douleurs abdominales
+Yassine TOUNSI,Dr. Hassan LAZRAK,2025-12-13 10:00:00,0.5,consultation,confirmed,Radio thorax
+Asmae EL FASSI,Dr. Amina BERRADA,2025-12-13 14:00:00,0.5,consultation,confirmed,Consultation médecine interne
+Adil HAKIMI,Dr. Karim BENJELLOUN,2025-12-14 09:00:00,0.5,followup,confirmed,Suivi traitement dermatologique
+Karima ZIANI,Dr. Nadia ALAOUI,2025-12-14 11:00:00,0.5,consultation,confirmed,Problème d'audition
+Nabil RIFAI,Dr. Omar SENHAJI,2025-12-15 09:00:00,0.5,checkup,confirmed,Examen de la vue
+Hanae KADIRI,Dr. Leila BENKIRANE,2025-12-15 15:00:00,1.0,consultation,confirmed,Consultation psychiatrique
+Tarik AMZIL,Dr. Rachid SEFRIOUI,2025-12-16 09:00:00,0.5,followup,draft,Suivi post-infarctus
+Rajae SQUALLI,Dr. Salma KETTANI,2025-12-16 10:00:00,0.5,checkup,draft,Vaccination enfant
+Kamal BENNANI,Dr. Mustapha SQALLI,2025-12-17 14:00:00,1.5,consultation,draft,Consultation chirurgicale hernie
+Laila MANSOURI,Dr. Ahmed ALAMI,2025-12-11 11:00:00,0.5,consultation,done,Contrôle tension artérielle
+Driss FASSI,Dr. Fatima BENNANI,2025-12-12 15:00:00,0.5,consultation,confirmed,Consultation pédiatrique
+Ghizlane SLAOUI,Dr. Samira IDRISSI,2025-12-13 09:00:00,0.5,followup,confirmed,Suivi fracture poignet
+Aziz LAHLOU,Dr. Amina BERRADA,2025-12-14 14:00:00,0.75,consultation,confirmed,Bilan de santé complet
+Nisrine BERRADA,Dr. Youssef TAZI,2025-12-15 10:00:00,0.5,checkup,draft,Consultation gynéco préventive

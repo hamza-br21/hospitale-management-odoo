@@ -1,0 +1,21 @@
+id,name,category,manufacturer,dosage_form,unit_price,stock_quantity,active
+medicine_1,Paracétamol 500mg,painkiller,Sothema,tablet,15.50,500,TRUE
+medicine_2,Ibuprofène 400mg,painkiller,Laprophan,tablet,25.00,350,TRUE
+medicine_3,Amoxicilline 500mg,antibiotic,Pharma 5,capsule,45.00,200,TRUE
+medicine_4,Oméprazole 20mg,other,Galenica,capsule,35.50,180,TRUE
+medicine_5,Metformine 850mg,other,Cooper Pharma,tablet,55.00,250,TRUE
+medicine_6,Atorvastatine 20mg,other,Sothema,tablet,85.00,150,TRUE
+medicine_7,Losartan 50mg,other,Laprophan,tablet,65.00,220,TRUE
+medicine_8,Cétirizine 10mg,other,Pharma 5,tablet,18.00,400,TRUE
+medicine_9,Salbutamol 100mcg,other,Galenica,injection,95.00,100,TRUE
+medicine_10,Aspirine 100mg,painkiller,Sothema,tablet,12.00,600,TRUE
+medicine_11,Diclofénac 50mg,painkiller,Laprophan,tablet,28.50,300,TRUE
+medicine_12,Azithromycine 250mg,antibiotic,Cooper Pharma,capsule,75.00,150,TRUE
+medicine_13,Prednisolone 20mg,other,Pharma 5,tablet,48.00,180,TRUE
+medicine_14,Furosémide 40mg,other,Galenica,tablet,22.00,250,TRUE
+medicine_15,Warfarine 5mg,other,Sothema,tablet,68.00,120,TRUE
+medicine_16,Morphine 10mg,painkiller,Laprophan,injection,150.00,50,TRUE
+medicine_17,Insuline Rapide,other,Cooper Pharma,injection,180.00,80,TRUE
+medicine_18,Vitamine D 1000UI,vitamin,Pharma 5,capsule,35.00,400,TRUE
+medicine_19,Fer 80mg,vitamin,Galenica,tablet,25.00,350,TRUE
+medicine_20,Calcium 500mg,vitamin,Sothema,tablet,28.00,320,TRUE

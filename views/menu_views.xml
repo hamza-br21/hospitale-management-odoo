@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_gestion_hospitaliere_root"
+              name="Gestion Hospitalière"
+              sequence="10"
+              web_icon="gestion_hospitaliere,static/description/icon.png"/>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Dashboard Action -->
+    <record id="action_hospital_dashboard" model="ir.actions.act_window">
+        <field name="name">Hospital Dashboard</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Welcome to Hospital Management System
+            </p>
+        </field>
+    </record>
+
+    <!-- Dashboard Menu -->
+    <menuitem id="menu_hospital_dashboard"
+              name="Dashboard"
+              parent="menu_gestion_hospitaliere_root"
+              action="action_hospital_dashboard"
+              sequence="1"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_hospital_configuration"
+              name="Configuration"
+              parent="menu_gestion_hospitaliere_root"
+              sequence="100"/>
+
+    <menuitem id="menu_configuration_departments"
+              name="Departments"
+              parent="menu_hospital_configuration"
+              action="action_hospital_department"
+              sequence="10"/>
+
+</odoo>

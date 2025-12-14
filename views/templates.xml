@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Load Custom CSS Assets -->
+    <template id="assets_backend" name="hospital_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/gestion_hospitaliere/static/src/css/hospital_styles.css"/>
+        </xpath>
+    </template>
+
+    <!-- Report Templates -->
+    <template id="report_hospital_prescription" name="Prescription Report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="hospital_report_header">
+                            <h2>Medical Prescription</h2>
+                            <p><strong>Reference:</strong> <span t-field="o.reference"/></p>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-6">
+                                <strong>Patient Information:</strong><br/>
+                                Name: <span t-field="o.patient_id.name"/><br/>
+                                Age: <span t-field="o.patient_id.age"/> years<br/>
+                                Gender: <span t-field="o.patient_id.gender"/><br/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Doctor Information:</strong><br/>
+                                Name: <span t-field="o.doctor_id.name"/><br/>
+                                Specialization: <span t-field="o.doctor_id.specialization"/><br/>
+                                Date: <span t-field="o.prescription_date"/><br/>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Prescribed Medications:</h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Medicine</th>
+                                    <th>Dosage</th>
+                                    <th>Frequency</th>
+                                    <th>Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.prescription_line_ids" t-as="line">
+                                    <td><span t-field="line.medicine_id.name"/></td>
+                                    <td><span t-field="line.dosage"/></td>
+                                    <td><span t-field="line.frequency"/></td>
+                                    <td><span t-field="line.duration"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="mt-5">
+                            <p><strong>Instructions:</strong></p>
+                            <p t-field="o.instructions"/>
+                        </div>
+
+                        <div class="mt-5">
+                            <p>Doctor's Signature: _____________________</p>
+                            <p>Date: <span t-field="o.prescription_date"/></p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

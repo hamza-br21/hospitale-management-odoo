@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Advanced Dashboard Form View -->
+    <record id="view_hospital_dashboard_form" model="ir.ui.view">
+        <field name="name">hospital.dashboard.form</field>
+        <field name="model">hospital.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Dashboard" create="false" edit="false">
+                <header>
+                    <button name="action_refresh_dashboard" string="Refresh Dashboard" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <!-- KPI Section -->
+                    <div class="hospital_grid">
+                        <div class="hospital_dashboard_kpi kpi_patients">
+                            <div class="kpi_label">Total Patients</div>
+                            <div class="kpi_value"><field name="total_patients"/></div>
+                            <div class="kpi_trend positive">
+                                <field name="patient_growth_rate"/>% growth
+                            </div>
+                        </div>
+                        
+                        <div class="hospital_dashboard_kpi kpi_doctors">
+                            <div class="kpi_label">Active Doctors</div>
+                            <div class="kpi_value"><field name="total_doctors"/></div>
+                        </div>
+                        
+                        <div class="hospital_dashboard_kpi kpi_appointments">
+                            <div class="kpi_label">Today's Appointments</div>
+                            <div class="kpi_value"><field name="total_appointments_today"/></div>
+                            <div class="kpi_trend">
+                                <field name="appointment_completion_rate"/>% completion rate
+                            </div>
+                        </div>
+                        
+                        <div class="hospital_dashboard_kpi kpi_revenue">
+                            <div class="kpi_label">Monthly Revenue</div>
+                            <div class="kpi_value">$<field name="total_revenue_month"/></div>
+                            <div class="kpi_label">Avg: $<field name="average_bill_amount"/></div>
+                        </div>
+                        
+                        <div class="hospital_dashboard_kpi kpi_beds">
+                            <div class="kpi_label">Bed Occupancy</div>
+                            <div class="kpi_value"><field name="bed_occupancy_rate"/>%</div>
+                        </div>
+                        
+                        <div class="hospital_dashboard_kpi kpi_admissions">
+                            <div class="kpi_label">Active Admissions</div>
+                            <div class="kpi_value"><field name="total_admissions_active"/></div>
+                            <div class="kpi_label">Pending Bills: <field name="total_pending_bills"/></div>
+                        </div>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Dashboard Action -->
+    <record id="action_hospital_dashboard_advanced" model="ir.actions.act_window">
+        <field name="name">Advanced Dashboard</field>
+        <field name="res_model">hospital.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'form_view_initial_mode': 'readonly'}</field>
+    </record>
+
+    <!-- Analytics Form View -->
+    <record id="view_hospital_analytics_form" model="ir.ui.view">
+        <field name="name">hospital.analytics.form</field>
+        <field name="model">hospital.analytics</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Analytics">
+                <header>
+                    <button name="action_generate_report" string="Generate Report" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="report_type" widget="radio"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Report Preview">
+                            <div class="alert alert-info">
+                                <p>Select report type and date range, then click "Generate Report" to view analytics.</p>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Analytics Action -->
+    <record id="action_hospital_analytics" model="ir.actions.act_window">
+        <field name="name">Analytics &amp; Reports</field>
+        <field name="res_model">hospital.analytics</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Notification Tree View -->
+    <record id="view_hospital_notification_tree" model="ir.ui.view">
+        <field name="name">hospital.notification.tree</field>
+        <field name="model">hospital.notification</field>
+        <field name="arch" type="xml">
+            <tree string="Notifications" decoration-success="state=='sent'" decoration-danger="state=='failed'">
+                <field name="name"/>
+                <field name="notification_type"/>
+                <field name="recipient_type"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="scheduled_date"/>
+                <field name="state" widget="badge" decoration-success="state=='sent'" decoration-danger="state=='failed'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Notification Form View -->
+    <record id="view_hospital_notification_form" model="ir.ui.view">
+        <field name="name">hospital.notification.form</field>
+        <field name="model">hospital.notification</field>
+        <field name="arch" type="xml">
+            <form string="Notification">
+                <header>
+                    <button name="action_send_notification" string="Send Now" type="object" 
+                            class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="notification_type"/>
+                            <field name="recipient_type"/>
+                        </group>
+                        <group>
+                            <field name="patient_id" attrs="{'invisible': [('recipient_type', '!=', 'patient')], 'required': [('recipient_type', '=', 'patient')]}"/>
+                            <field name="doctor_id" attrs="{'invisible': [('recipient_type', '!=', 'doctor')], 'required': [('recipient_type', '=', 'doctor')]}"/>
+                            <field name="scheduled_date"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <field name="message" widget="html"/>
+                    </group>
+                    
+                    <group>
+                        <group string="Delivery Options">
+                            <field name="send_via_email"/>
+                            <field name="send_via_sms"/>
+                        </group>
+                        <group string="Status">
+                            <field name="sent_date" readonly="1"/>
+                            <field name="error_message" readonly="1" attrs="{'invisible': [('state', '!=', 'failed')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Notification Action -->
+    <record id="action_hospital_notification" model="ir.actions.act_window">
+        <field name="name">Notifications</field>
+        <field name="res_model">hospital.notification</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_hospital_dashboard_advanced"
+              name="Advanced Dashboard"
+              parent="menu_hospital_dashboard"
+              action="action_hospital_dashboard_advanced"
+              sequence="2"/>
+
+    <menuitem id="menu_hospital_analytics"
+              name="Analytics &amp; Reports"
+              parent="menu_gestion_hospitaliere_root"
+              action="action_hospital_analytics"
+              sequence="95"/>
+
+    <menuitem id="menu_hospital_notifications"
+              name="Notifications"
+              parent="menu_gestion_hospitaliere_root"
+              action="action_hospital_notification"
+              sequence="90"/>
+
+</odoo>

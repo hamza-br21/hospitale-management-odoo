@@ -1,0 +1,16 @@
+id,name,gender,specialization,phone,email,department_id,active
+doctor_1,Dr. Ahmed ALAMI,male,Cardiologue,0661234567,ahmed.alami@hospital.ma,Cardiologie,TRUE
+doctor_2,Dr. Fatima BENNANI,female,Pédiatre,0662345678,fatima.bennani@hospital.ma,Pédiatrie,TRUE
+doctor_3,Dr. Mohammed CHAKIR,male,Chirurgien,0663456789,mohammed.chakir@hospital.ma,Chirurgie Générale,TRUE
+doctor_4,Dr. Samira IDRISSI,female,Orthopédiste,0664567890,samira.idrissi@hospital.ma,Orthopédie,TRUE
+doctor_5,Dr. Youssef TAZI,male,Gynécologue,0665678901,youssef.tazi@hospital.ma,Gynécologie-Obstétrique,TRUE
+doctor_6,Dr. Khadija FILALI,female,Urgentiste,0666789012,khadija.filali@hospital.ma,Urgences,TRUE
+doctor_7,Dr. Hassan LAZRAK,male,Radiologue,0667890123,hassan.lazrak@hospital.ma,Radiologie,TRUE
+doctor_8,Dr. Amina BERRADA,female,Interniste,0668901234,amina.berrada@hospital.ma,Médecine Interne,TRUE
+doctor_9,Dr. Karim BENJELLOUN,male,Dermatologue,0669012345,karim.benjelloun@hospital.ma,Dermatologie,TRUE
+doctor_10,Dr. Nadia ALAOUI,female,ORL,0660123456,nadia.alaoui@hospital.ma,ORL,TRUE
+doctor_11,Dr. Omar SENHAJI,male,Ophtalmologue,0661012345,omar.senhaji@hospital.ma,Ophtalmologie,TRUE
+doctor_12,Dr. Leila BENKIRANE,female,Psychiatre,0662012345,leila.benkirane@hospital.ma,Psychiatrie,TRUE
+doctor_13,Dr. Rachid SEFRIOUI,male,Cardiologue,0663012345,rachid.sefrioui@hospital.ma,Cardiologie,TRUE
+doctor_14,Dr. Salma KETTANI,female,Pédiatre,0664012345,salma.kettani@hospital.ma,Pédiatrie,TRUE
+doctor_15,Dr. Mustapha SQALLI,male,Chirurgien,0665012345,mustapha.sqalli@hospital.ma,Chirurgie Générale,TRUE

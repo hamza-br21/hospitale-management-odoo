@@ -1,0 +1,36 @@
+# Python Requirements for Advanced Hospital Management System
+
+# Core dependencies
+requests>=2.28.0
+python-dateutil>=2.8.2
+
+# Optional but recommended for enhanced features
+# Uncomment as needed:
+
+# For SMS notifications (Twilio)
+# twilio>=8.0.0
+
+# For chart generation (if server-side charts needed)
+# matplotlib>=3.5.0
+# plotly>=5.0.0
+
+# For PDF reports enhancement
+# reportlab>=3.6.0
+
+# For Excel export
+# openpyxl>=3.0.0
+# xlsxwriter>=3.0.0
+
+# For data analysis
+# pandas>=1.4.0
+# numpy>=1.22.0
+
+# For API rate limiting
+# python-decouple>=3.6
+
+# For caching
+# redis>=4.3.0
+
+# For advanced notifications
+# sendgrid>=6.9.0  # Email service
+# firebase-admin>=5.2.0  # Push notifications

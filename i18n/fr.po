@@ -1,0 +1,102 @@
+# i18n/fr.po
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* gestion_hospitaliere
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_gestion_hospitaliere_root
+msgid "Gestion Hospitalière"
+msgstr "Gestion Hospitalière"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_patient
+msgid "Patients"
+msgstr "Patients"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_doctor
+msgid "Doctors"
+msgstr "Médecins"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_appointment
+msgid "Appointments"
+msgstr "Rendez-vous"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_department
+msgid "Departments"
+msgstr "Départements"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_bed
+msgid "Beds"
+msgstr "Lits"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_admission
+msgid "Admissions"
+msgstr "Admissions"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_prescription
+msgid "Prescriptions"
+msgstr "Prescriptions"
+
+#. module: gestion_hospitaliere
+#: model:ir.ui.menu,name:gestion_hospitaliere.menu_bill
+msgid "Billing"
+msgstr "Facturation"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_patient
+msgid "Patient File"
+msgstr "Fossier Patient"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_doctor
+msgid "Doctor Record"
+msgstr "Dossier Médecin"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_appointment
+msgid "Appointment"
+msgstr "Rendez-vous"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_department
+msgid "Department"
+msgstr "Département"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_bed
+msgid "Hospital Bed"
+msgstr "Lit d'hôpital"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_admission
+msgid "Patient Admission"
+msgstr "Admission Patient"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_prescription
+msgid "Medical Prescription"
+msgstr "Prescription Médicale"
+
+#. module: gestion_hospitaliere
+#: model:ir.model,name:gestion_hospitaliere.model_hospital_bill
+msgid "Hospital Bill"
+msgstr "Facture Hospitalière"

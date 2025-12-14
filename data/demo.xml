@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Departments -->
+        <record id="dept_cardiology" model="hospital.department">
+            <field name="name">Cardiology</field>
+            <field name="description">Heart and cardiovascular system.</field>
+        </record>
+        <record id="dept_neurology" model="hospital.department">
+            <field name="name">Neurology</field>
+            <field name="description">Nervous system disorders.</field>
+        </record>
+        <record id="dept_pediatrics" model="hospital.department">
+            <field name="name">Pediatrics</field>
+            <field name="description">Medical care of infants, children, and adolescents.</field>
+        </record>
+
+        <!-- Doctors -->
+        <record id="doc_house" model="hospital.doctor">
+            <field name="name">Dr. Gregory House</field>
+            <field name="gender">male</field>
+            <field name="specialization">Diagnostic Medicine</field>
+            <field name="department_id" ref="dept_neurology"/>
+            <field name="email">house@hospital.com</field>
+        </record>
+        <record id="doc_cameron" model="hospital.doctor">
+            <field name="name">Dr. Allison Cameron</field>
+            <field name="gender">female</field>
+            <field name="specialization">Immunology</field>
+            <field name="department_id" ref="dept_cardiology"/>
+            <field name="email">cameron@hospital.com</field>
+        </record>
+        <record id="doc_wilson" model="hospital.doctor">
+            <field name="name">Dr. James Wilson</field>
+            <field name="gender">male</field>
+            <field name="specialization">Oncology</field>
+            <field name="department_id" ref="dept_pediatrics"/>
+            <field name="email">wilson@hospital.com</field>
+        </record>
+
+        <!-- Patients -->
+        <record id="pat_john_doe" model="hospital.patient">
+            <field name="name">John Doe</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1980-05-15</field>
+            <field name="phone">+1 555 0101</field>
+            <field name="email">john.doe@example.com</field>
+        </record>
+        <record id="pat_jane_smith" model="hospital.patient">
+            <field name="name">Jane Smith</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1992-11-20</field>
+            <field name="phone">+1 555 0102</field>
+            <field name="email">jane.smith@example.com</field>
+        </record>
+        <record id="pat_baby_doe" model="hospital.patient">
+            <field name="name">Baby Doe</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2023-01-10</field>
+            <field name="phone">+1 555 0103</field>
+        </record>
+
+        <!-- Medicines -->
+        <record id="med_paracetamol" model="hospital.medicine">
+            <field name="name">Paracetamol</field>
+            <field name="generic_name">Acetaminophen</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">tablet</field>
+            <field name="strength">500mg</field>
+            <field name="unit_price">0.50</field>
+            <field name="stock_quantity">1000</field>
+            <field name="manufacturer">PharmaCo</field>
+        </record>
+        <record id="med_amoxicillin" model="hospital.medicine">
+            <field name="name">Amoxicillin</field>
+            <field name="category">antibiotic</field>
+            <field name="dosage_form">capsule</field>
+            <field name="strength">250mg</field>
+            <field name="unit_price">1.20</field>
+            <field name="stock_quantity">500</field>
+            <field name="manufacturer">MediLabs</field>
+        </record>
+
+        <!-- Rooms -->
+        <record id="room_101" model="hospital.room">
+            <field name="name">Room 101</field>
+            <field name="room_type">general</field>
+            <field name="department_id" ref="dept_cardiology"/>
+            <field name="floor">1st Floor</field>
+            <field name="daily_rate">100.00</field>
+        </record>
+        <record id="room_201" model="hospital.room">
+            <field name="name">Room 201</field>
+            <field name="room_type">icu</field>
+            <field name="department_id" ref="dept_neurology"/>
+            <field name="floor">2nd Floor</field>
+            <field name="daily_rate">300.00</field>
+        </record>
+
+        <!-- Beds -->
+        <record id="bed_101" model="hospital.bed">
+            <field name="name">Bed 101</field>
+            <field name="room_id" ref="room_101"/>
+            <field name="bed_type">standard</field>
+            <field name="state">free</field>
+        </record>
+        <record id="bed_102" model="hospital.bed">
+            <field name="name">Bed 102</field>
+            <field name="room_id" ref="room_201"/>
+            <field name="bed_type">icu</field>
+            <field name="state">free</field>
+        </record>
+        <record id="bed_103" model="hospital.bed">
+            <field name="name">Bed 103</field>
+            <field name="room_id" ref="room_101"/>
+            <field name="bed_type">vip</field>
+            <field name="state">free</field>
+        </record>
+
+        <!-- Insurance -->
+        <record id="insurance_1" model="hospital.insurance">
+            <field name="policy_number">INS-001</field>
+            <field name="patient_id" ref="pat_john_doe"/>
+            <field name="provider">Blue Cross</field>
+            <field name="coverage_percentage">80</field>
+            <field name="start_date">2024-01-01</field>
+            <field name="end_date">2025-12-31</field>
+            <field name="max_coverage_amount">50000</field>
+        </record>
+
+        <!-- Ensure sequences are initialized correctly if managed by code, but here we just create records -->
+        <!-- Appointments -->
+        <record id="app_1" model="hospital.appointment">
+            <field name="patient_id" ref="pat_john_doe"/>
+            <field name="doctor_id" ref="doc_house"/>
+            <field name="date_appointment">2024-03-10 10:00:00</field>
+            <field name="note">First consultation</field>
+            <field name="state">confirmed</field>
+        </record>
+        <record id="app_2" model="hospital.appointment">
+            <field name="patient_id" ref="pat_jane_smith"/>
+            <field name="doctor_id" ref="doc_cameron"/>
+            <field name="date_appointment">2024-03-12 14:30:00</field>
+            <field name="state">draft</field>
+        </record>
+
+        <!-- Admissions (Will trigger bed occupancy logic if logic was model-level, but in XML data, compute/onchange might not trigger same way without explicit writes, but usually creating record sets state. Our Action logic sets bed occupied, but here we set it manually to be consistent or rely on python logic if overridden create) -->
+        <!-- Note: Pure XML data loading bypasses some python logic unless override create. Our logic is in action_admit. So for demo data, we set states manually. OR we can leave state draft. Let's set one active admission manually consistent. -->
+        <record id="adm_1" model="hospital.admission">
+            <field name="patient_id" ref="pat_john_doe"/>
+            <field name="bed_id" ref="bed_101"/>
+            <field name="date_admission">2024-03-11 09:00:00</field>
+            <field name="diagnosis">Severe flu</field>
+            <field name="state">active</field>
+        </record>
+        <!-- Update bed state for admission -->
+        <record id="bed_101" model="hospital.bed">
+            <field name="state">occupied</field>
+        </record>
+
+        <!-- Prescriptions -->
+        <record id="pres_1" model="hospital.prescription">
+            <field name="patient_id" ref="pat_john_doe"/>
+            <field name="doctor_id" ref="doc_house"/>
+            <field name="note">Take rest</field>
+            <field name="state">draft</field>
+        </record>
+        <record id="pres_line_1" model="hospital.prescription.line">
+            <field name="prescription_id" ref="pres_1"/>
+            <field name="medicine_id" ref="med_paracetamol"/>
+            <field name="name">Paracetamol</field>
+            <field name="dosage">500mg</field>
+            <field name="frequency">3 times a day</field>
+            <field name="duration_days">7</field>
+            <field name="quantity">21</field>
+        </record>
+
+        <!-- Bills -->
+        <record id="bill_1" model="hospital.bill">
+            <field name="patient_id" ref="pat_john_doe"/>
+            <field name="admission_id" ref="adm_1"/>
+            <field name="insurance_id" ref="insurance_1"/>
+            <field name="date_bill">2024-03-11</field>
+            <field name="payment_method">insurance</field>
+            <field name="state">paid</field>
+        </record>
+        <record id="bill_line_1" model="hospital.bill.line">
+            <field name="bill_id" ref="bill_1"/>
+            <field name="product_type">consultation</field>
+            <field name="description">Doctor Consultation</field>
+            <field name="quantity">1</field>
+            <field name="unit_price">100.00</field>
+        </record>
+        <record id="bill_line_2" model="hospital.bill.line">
+            <field name="bill_id" ref="bill_1"/>
+            <field name="product_type">room</field>
+            <field name="description">Room Charges (1 day)</field>
+            <field name="quantity">1</field>
+            <field name="unit_price">100.00</field>
+        </record>
+
+    </data>
+</odoo>

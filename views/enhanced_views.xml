@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Enhanced Patient Kanban View -->
+    <record id="view_hospital_patient_kanban_enhanced" model="ir.ui.view">
+        <field name="name">hospital.patient.kanban.enhanced</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="blood_group"/>
+                <field name="appointment_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click hospital_patient_card">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <div class="patient_avatar">
+                                        <t t-if="record.gender.raw_value == 'male'">👨</t>
+                                        <t t-elif="record.gender.raw_value == 'female'">👩</t>
+                                        <t t-else="">👤</t>
+                                    </div>
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div class="hospital_patient_info">
+                                    <div><i class="fa fa-birthday-cake"/> <field name="age"/> years</div>
+                                    <div><i class="fa fa-venus-mars"/> <field name="gender"/></div>
+                                    <div t-if="record.blood_group.raw_value">
+                                        <i class="fa fa-tint"/> <field name="blood_group"/>
+                                    </div>
+                                    <div t-if="record.phone.raw_value">
+                                        <i class="fa fa-phone"/> <field name="phone"/>
+                                    </div>
+                                    <div t-if="record.email.raw_value">
+                                        <i class="fa fa-envelope"/> <field name="email"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span class="hospital_status_badge">
+                                        <i class="fa fa-calendar"/> <field name="appointment_count"/> Appointments
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Enhanced Appointment Kanban View by Status -->
+    <record id="view_hospital_appointment_kanban_status" model="ir.ui.view">
+        <field name="name">hospital.appointment.kanban.status</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column" sample="1">
+                <field name="reference"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="date_appointment"/>
+                <field name="appointment_type"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click hospital_appointment_card" 
+                             t-att-class="record.appointment_type.raw_value == 'emergency' ? 'emergency' : ''">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="reference"/>
+                                    </strong>
+                                    <span t-if="record.appointment_type.raw_value == 'emergency'" 
+                                          class="badge badge-danger float-right">
+                                        EMERGENCY
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div>
+                                    <i class="fa fa-user"/> <field name="patient_id"/>
+                                </div>
+                                <div>
+                                    <i class="fa fa-user-md"/> <field name="doctor_id"/>
+                                </div>
+                                <div>
+                                    <i class="fa fa-clock-o"/> <field name="date_appointment" widget="datetime"/>
+                                </div>
+                                <div>
+                                    <span class="hospital_status_badge" t-attf-class="status_#{record.appointment_type.raw_value}">
+                                        <field name="appointment_type"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Enhanced Calendar View for Appointments -->
+    <record id="view_hospital_appointment_calendar_enhanced" model="ir.ui.view">
+        <field name="name">hospital.appointment.calendar.enhanced</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Appointments Calendar" 
+                     date_start="date_appointment" 
+                     color="doctor_id" 
+                     mode="month"
+                     quick_add="True"
+                     event_open_popup="True">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="appointment_type"/>
+                <field name="state" filters="1" invisible="1"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Enhanced Pivot View for Analytics -->
+    <record id="view_hospital_bill_pivot" model="ir.ui.view">
+        <field name="name">hospital.bill.pivot</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <pivot string="Bill Analysis" sample="1">
+                <field name="date_bill" type="row" interval="month"/>
+                <field name="payment_method" type="col"/>
+                <field name="total_amount" type="measure"/>
+                <field name="insurance_coverage" type="measure"/>
+                <field name="patient_payable" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Enhanced Graph View for Revenue -->
+    <record id="view_hospital_bill_graph" model="ir.ui.view">
+        <field name="name">hospital.bill.graph</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <graph string="Revenue Analysis" type="line" sample="1">
+                <field name="date_bill" interval="month"/>
+                <field name="total_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Doctor Performance Dashboard -->
+    <record id="view_hospital_doctor_kanban_performance" model="ir.ui.view">
+        <field name="name">hospital.doctor.kanban.performance</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="name"/>
+                <field name="specialization"/>
+                <field name="department_id"/>
+                <field name="appointment_count"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('hospital.doctor', 'image', record.id.raw_value)" 
+                                     alt="Doctor" class="o_image_64_cover"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div t-if="record.specialization.raw_value">
+                                    <i class="fa fa-stethoscope"/> <field name="specialization"/>
+                                </div>
+                                <div t-if="record.department_id.raw_value">
+                                    <i class="fa fa-building"/> <field name="department_id"/>
+                                </div>
+                                <div class="hospital_stats_card">
+                                    <span class="hospital_status_badge status_confirmed">
+                                        <field name="appointment_count"/> Appointments
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Activity View for Better Task Management -->
+    <record id="view_hospital_patient_activity" model="ir.ui.view">
+        <field name="name">hospital.patient.activity</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <activity string="Patient Activities">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="name"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+</odoo>

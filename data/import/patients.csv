@@ -1,0 +1,26 @@
+id,name,date_of_birth,gender,phone,email,address,blood_group,active
+patient_1,Mehdi BOUAZIZI,1985-03-15,male,0671234567,mehdi.bouazizi@gmail.com,"Hay Riad, Rabat",o+,TRUE
+patient_2,Zineb AMRANI,1990-07-22,female,0672345678,zineb.amrani@gmail.com,"Maarif, Casablanca",a+,TRUE
+patient_3,Said MOUSSAOUI,1978-11-30,male,0673456789,said.moussaoui@yahoo.com,"Agdal, Rabat",b+,TRUE
+patient_4,Imane CHRAIBI,1995-05-18,female,0674567890,imane.chraibi@hotmail.com,"Gauthier, Casablanca",ab+,TRUE
+patient_5,Hamza EL IDRISSI,1982-09-25,male,0675678901,hamza.elidrissi@gmail.com,"Guéliz, Marrakech",o-,TRUE
+patient_6,Soukaina BENALI,1988-02-14,female,0676789012,soukaina.benali@gmail.com,"Hassan, Rabat",a-,TRUE
+patient_7,Yassine TOUNSI,1975-12-08,male,0677890123,yassine.tounsi@gmail.com,"Anfa, Casablanca",b-,TRUE
+patient_8,Asmae EL FASSI,1992-04-03,female,0678901234,asmae.elfassi@gmail.com,"Hivernage, Marrakech",o+,TRUE
+patient_9,Adil HAKIMI,1980-08-19,male,0679012345,adil.hakimi@gmail.com,"Souissi, Rabat",a+,TRUE
+patient_10,Karima ZIANI,1987-06-27,female,0670123456,karima.ziani@gmail.com,"Bourgogne, Casablanca",b+,TRUE
+patient_11,Nabil RIFAI,1993-01-11,male,0671012345,nabil.rifai@gmail.com,"Palmiers, Casablanca",ab-,TRUE
+patient_12,Hanae KADIRI,1991-10-05,female,0672012345,hanae.kadiri@gmail.com,"Aviation, Rabat",o+,TRUE
+patient_13,Tarik AMZIL,1984-03-21,male,0673012345,tarik.amzil@gmail.com,"Ain Diab, Casablanca",a+,TRUE
+patient_14,Rajae SQUALLI,1989-07-16,female,0674012345,rajae.squalli@gmail.com,"Dar Bouazza, Casablanca",b+,TRUE
+patient_15,Kamal BENNANI,1977-11-28,male,0675012345,kamal.bennani@gmail.com,"Hay Ryad, Rabat",o-,TRUE
+patient_16,Laila MANSOURI,1994-05-09,female,0676012345,laila.mansouri@gmail.com,"Belvédère, Casablanca",a-,TRUE
+patient_17,Driss FASSI,1981-09-14,male,0677012345,driss.fassi@gmail.com,"Medina, Fès",ab+,TRUE
+patient_18,Ghizlane SLAOUI,1986-02-23,female,0678012345,ghizlane.slaoui@gmail.com,"Tanger City Center, Tanger",o+,TRUE
+patient_19,Aziz LAHLOU,1979-12-31,male,0679012345,aziz.lahlou@gmail.com,"Quartier des Hôpitaux, Rabat",b+,TRUE
+patient_20,Nisrine BERRADA,1996-04-17,female,0670234567,nisrine.berrada@gmail.com,"California, Casablanca",a+,TRUE
+patient_21,Hassan MIMOUNI,1983-08-08,male,0671234568,hassan.mimouni@gmail.com,"Massira, Marrakech",o+,TRUE
+patient_22,Salma KADIRI,1990-11-22,female,0672234568,salma.kadiri@gmail.com,"Agdal, Rabat",a+,TRUE
+patient_23,Amine TAZI,1976-06-05,male,0673234568,amine.tazi@gmail.com,"Corniche, Casablanca",b-,TRUE
+patient_24,Hafsa IDRISSI,1992-01-19,female,0674234568,hafsa.idrissi@gmail.com,"Ville Nouvelle, Fès",ab+,TRUE
+patient_25,Omar FILALI,1988-03-27,male,0675234568,omar.filali@gmail.com,"Marina, Casablanca",o-,TRUE

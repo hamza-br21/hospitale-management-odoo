@@ -1,0 +1,11 @@
+patient_id,doctor_id,date_admission,discharge_date,bed_id,admission_type,diagnosis,state
+Zineb AMRANI,Dr. Fatima BENNANI,2025-12-09 08:00:00,2025-12-11 10:00:00,Lit 102-B,emergency,Appendicite aiguë - Post-opératoire,discharged
+Soukaina BENALI,Dr. Khadija FILALI,2025-12-10 14:00:00,2025-12-12 09:00:00,Lit 201-A,emergency,Douleurs abdominales sévères - Colique néphrétique,discharged
+Laila MANSOURI,Dr. Samira IDRISSI,2025-12-08 10:00:00,2025-12-13 15:00:00,Lit 302,planned,Chirurgie orthopédique programmée - Prothèse genou,discharged
+Hassan MIMOUNI,Dr. Mohammed CHAKIR,2025-12-11 16:00:00,,Lit 203-A,emergency,Fracture du fémur - Attente chirurgie,active
+Ghizlane SLAOUI,Dr. Ahmed ALAMI,2025-12-10 08:00:00,,Réa-1,emergency,Infarctus du myocarde - Soins intensifs,active
+Aziz LAHLOU,Dr. Rachid SEFRIOUI,2025-12-09 20:00:00,,Réa-2,emergency,AVC ischémique - Réanimation,active
+Nisrine BERRADA,Dr. Youssef TAZI,2025-12-12 07:00:00,,Lit 201-A,planned,Accouchement programmé,active
+Mehdi BOUAZIZI,Dr. Ahmed ALAMI,2025-12-13 09:00:00,,Lit 106-A,observation,Observation cardiaque post-consultation,draft
+Imane CHRAIBI,Dr. Samira IDRISSI,2025-12-14 10:00:00,,Lit 106-B,planned,Chirurgie arthroscopie genou programmée,draft
+Tarik AMZIL,Dr. Rachid SEFRIOUI,2025-12-15 08:00:00,,Lit 104-A,observation,Surveillance post-infarctus,draft

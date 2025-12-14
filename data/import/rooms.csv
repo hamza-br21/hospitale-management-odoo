@@ -1,0 +1,16 @@
+id,name,room_type,active
+room_1,Chambre 101,general,TRUE
+room_2,Chambre 102,general,TRUE
+room_3,Chambre 103,general,TRUE
+room_4,Chambre 201,semi_private,TRUE
+room_5,Chambre 202,semi_private,TRUE
+room_6,Chambre 203,semi_private,TRUE
+room_7,Suite 301,private,TRUE
+room_8,Suite 302,private,TRUE
+room_9,Suite 303,private,TRUE
+room_10,Chambre 104,general,TRUE
+room_11,Chambre 105,general,TRUE
+room_12,Chambre 204,semi_private,TRUE
+room_13,Suite 304,private,TRUE
+room_14,Salle de Réanimation,icu,TRUE
+room_15,Chambre 106,general,TRUE

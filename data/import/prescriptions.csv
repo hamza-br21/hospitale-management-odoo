@@ -1,0 +1,16 @@
+id,patient_id,doctor_id,prescription_date,state
+presc_1,Mehdi BOUAZIZI,Dr. Ahmed ALAMI,2025-12-11 09:30:00,done
+presc_2,Zineb AMRANI,Dr. Fatima BENNANI,2025-12-11 10:30:00,done
+presc_3,Said MOUSSAOUI,Dr. Mohammed CHAKIR,2025-12-11 14:30:00,done
+presc_4,Imane CHRAIBI,Dr. Samira IDRISSI,2025-12-12 09:30:00,done
+presc_5,Hamza EL IDRISSI,Dr. Youssef TAZI,2025-12-12 11:30:00,done
+presc_6,Soukaina BENALI,Dr. Khadija FILALI,2025-12-11 08:30:00,done
+presc_7,Yassine TOUNSI,Dr. Hassan LAZRAK,2025-12-13 10:30:00,done
+presc_8,Asmae EL FASSI,Dr. Amina BERRADA,2025-12-13 14:30:00,done
+presc_9,Adil HAKIMI,Dr. Karim BENJELLOUN,2025-12-14 09:30:00,done
+presc_10,Karima ZIANI,Dr. Nadia ALAOUI,2025-12-14 11:30:00,done
+presc_11,Nabil RIFAI,Dr. Omar SENHAJI,2025-12-15 09:30:00,draft
+presc_12,Hanae KADIRI,Dr. Leila BENKIRANE,2025-12-15 15:30:00,draft
+presc_13,Tarik AMZIL,Dr. Rachid SEFRIOUI,2025-12-16 09:30:00,draft
+presc_14,Rajae SQUALLI,Dr. Salma KETTANI,2025-12-16 10:30:00,draft
+presc_15,Kamal BENNANI,Dr. Mustapha SQALLI,2025-12-17 14:30:00,draft

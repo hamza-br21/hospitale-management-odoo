@@ -1,0 +1,383 @@
+/* Hospital Management System - Modern UI Styles */
+
+/* Dashboard KPI Cards */
+.hospital_dashboard_kpi {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hospital_dashboard_kpi:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hospital_dashboard_kpi.kpi_patients {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hospital_dashboard_kpi.kpi_doctors {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.hospital_dashboard_kpi.kpi_appointments {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.hospital_dashboard_kpi.kpi_revenue {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.hospital_dashboard_kpi.kpi_beds {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.hospital_dashboard_kpi.kpi_admissions {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.kpi_value {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.kpi_label {
+  font-size: 14px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.kpi_trend {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.kpi_trend.positive {
+  color: #4ade80;
+}
+
+.kpi_trend.negative {
+  color: #f87171;
+}
+
+/* Chart Containers */
+.hospital_chart_container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hospital_chart_title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Status Badges */
+.hospital_status_badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status_draft {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status_confirmed {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status_done {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status_paid {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status_cancel {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status_admitted {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.status_discharged {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+/* Modern Form Styling */
+.hospital_form_section {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  border-left: 4px solid #667eea;
+}
+
+.hospital_form_section_title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+/* Smart Buttons */
+.hospital_smart_button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.hospital_smart_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+/* Action Buttons */
+.hospital_action_button {
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.hospital_action_button.btn_confirm {
+  background: #10b981;
+  color: white;
+  border: none;
+}
+
+.hospital_action_button.btn_cancel {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+
+.hospital_action_button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Patient Card */
+.hospital_patient_card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.hospital_patient_card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.patient_avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 auto 15px;
+}
+
+/* Appointment Calendar Styling */
+.hospital_appointment_card {
+  border-left: 4px solid #667eea;
+  padding: 12px;
+  margin: 8px 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hospital_appointment_card.emergency {
+  border-left-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Timeline View */
+.hospital_timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.hospital_timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.timeline_item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.timeline_marker {
+  position: absolute;
+  left: -24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #667eea;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #e5e7eb;
+}
+
+/* Loading Animation */
+.hospital_loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50%;
+  border-top-color: #667eea;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Notification Badge */
+.hospital_notification_badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Weather Widget */
+.hospital_weather_widget {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.weather_icon {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.weather_temp {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Statistics Card */
+.hospital_stats_card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stats_icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.stats_icon.icon_patients {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.stats_icon.icon_revenue {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.stats_icon.icon_appointments {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Responsive Grid */
+.hospital_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Print Styles */
+@media print {
+  .hospital_dashboard_kpi,
+  .hospital_chart_container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .hospital_chart_container,
+  .hospital_patient_card,
+  .hospital_stats_card {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  .hospital_chart_title,
+  .hospital_form_section_title {
+    color: #f9fafb;
+  }
+}

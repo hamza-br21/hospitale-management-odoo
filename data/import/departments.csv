@@ -1,0 +1,13 @@
+id,name,description,active
+department_1,Cardiologie,Service de cardiologie et maladies cardiovasculaires,TRUE
+department_2,Pédiatrie,Service de soins pour enfants et nourrissons,TRUE
+department_3,Chirurgie Générale,Service de chirurgie générale,TRUE
+department_4,Orthopédie,Service de traumatologie et orthopédie,TRUE
+department_5,Gynécologie-Obstétrique,Service de gynécologie et accouchement,TRUE
+department_6,Urgences,Service des urgences médicales,TRUE
+department_7,Radiologie,Service d'imagerie médicale,TRUE
+department_8,Médecine Interne,Service de médecine interne,TRUE
+department_9,Dermatologie,Service de dermatologie,TRUE
+department_10,ORL,Service d'oto-rhino-laryngologie,TRUE
+department_11,Ophtalmologie,Service d'ophtalmologie,TRUE
+department_12,Psychiatrie,Service de psychiatrie,TRUE

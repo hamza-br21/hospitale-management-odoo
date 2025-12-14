@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_hospital_medicine_tree" model="ir.ui.view">
+        <field name="name">hospital.medicine.tree</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <tree string="Medicines">
+                <field name="name"/>
+                <field name="generic_name"/>
+                <field name="category"/>
+                <field name="strength"/>
+                <field name="dosage_form"/>
+                <field name="unit_price"/>
+                <field name="stock_quantity"/>
+                <field name="expiry_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_hospital_medicine_form" model="ir.ui.view">
+        <field name="name">hospital.medicine.form</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <form string="Medicine">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Medicine Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="generic_name"/>
+                            <field name="category"/>
+                            <field name="dosage_form"/>
+                            <field name="strength"/>
+                        </group>
+                        <group>
+                            <field name="manufacturer"/>
+                            <field name="unit_price"/>
+                            <field name="stock_quantity"/>
+                            <field name="expiry_date"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Description..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hospital_medicine_search" model="ir.ui.view">
+        <field name="name">hospital.medicine.search</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <search string="Medicines">
+                <field name="name"/>
+                <field name="generic_name"/>
+                <field name="manufacturer"/>
+                <filter string="Antibiotics" name="antibiotic" domain="[('category', '=', 'antibiotic')]"/>
+                <filter string="Painkillers" name="painkiller" domain="[('category', '=', 'painkiller')]"/>
+                <filter string="Low Stock" name="low_stock" domain="[('stock_quantity', '&lt;', 10)]"/>
+                <separator/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Category" name="group_by_category" context="{'group_by':'category'}"/>
+                    <filter string="Dosage Form" name="group_by_form" context="{'group_by':'dosage_form'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hospital_medicine" model="ir.actions.act_window">
+        <field name="name">Medicines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.medicine</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add your first medicine to the catalog!
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_medicine"
+              name="Medicines"
+              parent="menu_gestion_hospitaliere_root"
+              action="action_hospital_medicine"
+              sequence="60"/>
+
+</odoo>

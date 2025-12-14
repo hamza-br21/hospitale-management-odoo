@@ -1,0 +1,11 @@
+id,patient_id,date_bill,due_date,insurance_id,payment_method,state
+bill_1,Zineb AMRANI,2025-12-11,2025-12-18,CNOPS2025005678,insurance,paid
+bill_2,Soukaina BENALI,2025-12-12,2025-12-19,ATL2025003333,insurance,paid
+bill_3,Laila MANSOURI,2025-12-13,2025-12-20,,cash,paid
+bill_4,Hassan MIMOUNI,2025-12-11,2025-12-25,,bank_transfer,draft
+bill_5,Ghizlane SLAOUI,2025-12-10,2025-12-24,AXA2025004444,insurance,draft
+bill_6,Aziz LAHLOU,2025-12-09,2025-12-23,,card,draft
+bill_7,Nisrine BERRADA,2025-12-12,2025-12-26,SAHAM2025002222,insurance,draft
+bill_8,Mehdi BOUAZIZI,2025-12-11,2025-12-18,CNSS2025001234,cash,paid
+bill_9,Said MOUSSAOUI,2025-12-11,2025-12-18,RMA2025009876,card,paid
+bill_10,Imane CHRAIBI,2025-12-12,2025-12-19,WAFA2025001111,insurance,paid
