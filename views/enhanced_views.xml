@@ -109,23 +109,23 @@
     </record>
 
     <!-- Enhanced Calendar View for Appointments -->
-    <record id="view_hospital_appointment_calendar_enhanced" model="ir.ui.view">
-        <field name="name">hospital.appointment.calendar.enhanced</field>
-        <field name="model">hospital.appointment</field>
-        <field name="arch" type="xml">
-            <calendar string="Appointments Calendar" 
-                     date_start="date_appointment" 
-                     color="doctor_id" 
-                     mode="month"
-                     quick_add="True"
-                     event_open_popup="True">
-                <field name="patient_id"/>
-                <field name="doctor_id"/>
-                <field name="appointment_type"/>
-                <field name="state" filters="1" invisible="1"/>
-            </calendar>
-        </field>
-    </record>
+<record id="view_hospital_appointment_calendar_enhanced" model="ir.ui.view">
+    <field name="name">hospital.appointment.calendar.enhanced</field>
+    <field name="model">hospital.appointment</field>
+    <field name="arch" type="xml">
+        <calendar string="Appointments Calendar" 
+                 date_start="date_appointment" 
+                 color="doctor_id" 
+                 mode="month"
+                 quick_create="1"
+                 event_open_popup="1">
+            <field name="patient_id"/>
+            <field name="doctor_id"/>
+            <field name="appointment_type"/>
+            <field name="state"/>
+        </calendar>
+    </field>
+</record>
 
     <!-- Enhanced Pivot View for Analytics -->
     <record id="view_hospital_bill_pivot" model="ir.ui.view">

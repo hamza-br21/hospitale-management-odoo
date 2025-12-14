@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Load Custom CSS Assets -->
-    <template id="assets_backend" name="hospital_assets" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/css" href="/gestion_hospitaliere/static/src/css/hospital_styles.css"/>
-        </xpath>
-    </template>
+
 
     <!-- Report Templates -->
     <template id="report_hospital_prescription" name="Prescription Report">

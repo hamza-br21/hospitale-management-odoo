@@ -134,49 +134,53 @@
         </field>
     </record>
 
-    <!-- Notification Form View -->
-    <record id="view_hospital_notification_form" model="ir.ui.view">
-        <field name="name">hospital.notification.form</field>
-        <field name="model">hospital.notification</field>
-        <field name="arch" type="xml">
-            <form string="Notification">
-                <header>
-                    <button name="action_send_notification" string="Send Now" type="object" 
-                            class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,sent"/>
-                </header>
-                <sheet>
+<!-- Notification Form View -->
+<record id="view_hospital_notification_form" model="ir.ui.view">
+    <field name="name">hospital.notification.form</field>
+    <field name="model">hospital.notification</field>
+    <field name="arch" type="xml">
+        <form string="Notification">
+            <header>
+                <button name="action_send_notification" string="Send Now" type="object" 
+                        class="oe_highlight" invisible="state != 'draft'"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,sent"/>
+            </header>
+            <sheet>
+                <group>
                     <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="notification_type"/>
-                            <field name="recipient_type"/>
-                        </group>
-                        <group>
-                            <field name="patient_id" attrs="{'invisible': [('recipient_type', '!=', 'patient')], 'required': [('recipient_type', '=', 'patient')]}"/>
-                            <field name="doctor_id" attrs="{'invisible': [('recipient_type', '!=', 'doctor')], 'required': [('recipient_type', '=', 'doctor')]}"/>
-                            <field name="scheduled_date"/>
-                        </group>
+                        <field name="name"/>
+                        <field name="notification_type"/>
+                        <field name="recipient_type"/>
                     </group>
-                    
                     <group>
-                        <field name="message" widget="html"/>
+                        <field name="patient_id" 
+                               invisible="recipient_type != 'patient'" 
+                               required="recipient_type == 'patient'"/>
+                        <field name="doctor_id" 
+                               invisible="recipient_type != 'doctor'" 
+                               required="recipient_type == 'doctor'"/>
+                        <field name="scheduled_date"/>
                     </group>
-                    
-                    <group>
-                        <group string="Delivery Options">
-                            <field name="send_via_email"/>
-                            <field name="send_via_sms"/>
-                        </group>
-                        <group string="Status">
-                            <field name="sent_date" readonly="1"/>
-                            <field name="error_message" readonly="1" attrs="{'invisible': [('state', '!=', 'failed')]}"/>
-                        </group>
+                </group>
+                
+                <group>
+                    <field name="message" widget="html"/>
+                </group>
+                
+                <group>
+                    <group string="Delivery Options">
+                        <field name="send_via_email"/>
+                        <field name="send_via_sms"/>
                     </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                    <group string="Status">
+                        <field name="sent_date" readonly="1"/>
+                        <field name="error_message" readonly="1" invisible="state != 'failed'"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
 
     <!-- Notification Action -->
     <record id="action_hospital_notification" model="ir.actions.act_window">
