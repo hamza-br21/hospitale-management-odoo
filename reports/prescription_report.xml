@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Paper Format (No Footer for no page numbering) -->
+    <record id="paperformat_prescription_no_footer" model="report.paperformat">
+        <field name="name">Prescription A4 No Footer</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+        <!-- Field 'footer' removed as it caused ValueError -->
+    </record>
+
+    <!-- Report Action -->
+    <record id="action_report_prescription" model="ir.actions.report">
+        <field name="name">Prescription</field>
+        <field name="model">hospital.prescription</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_hospitaliere.report_prescription</field>
+        <field name="report_file">gestion_hospitaliere.report_prescription</field>
+        <field name="print_report_name">'Prescription - %s' % (object.reference)</field>
+        <field name="binding_model_id" ref="model_hospital_prescription"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_prescription_no_footer"/>
+    </record>
+
+    <!-- Document Template -->
+    <template id="report_prescription_document">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc"/>
+            
+            <!-- Manual Header (Logo Only) -->
+            <div class="header">
+                <div class="row">
+                    <div class="col-6">
+                        <img t-if="doc.env.company.logo" t-att-src="image_data_uri(doc.env.company.logo)" style="max-height: 80px;" alt="Logo"/>
+                    </div>
+                    <div class="col-6 text-end">
+                        <div t-field="doc.env.company.partner_id" t-options='{"widget": "contact", "fields": ["name", "address", "phone"], "no_marker": true}'/>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 border-dark mt-2"></div>
+            </div>
+
+            <div class="page" style="font-family: 'Helvetica', sans-serif; font-size: 14px;">
+                <div class="oe_structure"/>
+
+                <!-- Spacer to push title down to the center -->
+                <div class="row" style="min-height: 50px; flex-grow: 1;"></div>
+                
+                <!-- Title Area -->
+                <div class="row border-bottom pb-2 mb-4 align-items-center">
+                    <div class="col-7">
+                        <h3 class="m-0 text-uppercase" style="color: #2c3e50; font-weight: bold;">Ordonnance Médicale</h3>
+                    </div>
+                    <div class="col-5 text-end">
+                        <h5 class="m-0 text-muted"><span t-field="doc.reference"/></h5>
+                        <div class="text-muted small">Date: <span t-field="doc.prescription_date" t-options='{"widget": "date"}'/></div>
+                    </div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="row mb-4">
+                    <!-- Patient Info (Left) -->
+                    <div class="col-6">
+                        <div class="p-3 bg-light border-start border-4 border-primary h-100">
+                            <strong class="text-primary text-uppercase mb-2 d-block" style="letter-spacing: 1px;">Patient</strong>
+                            <h5 class="mb-1"><span t-field="doc.patient_id.name"/></h5>
+                            <div class="small text-muted">
+                                <t t-if="doc.patient_id.age">
+                                    <span>Âge: <span t-field="doc.patient_id.age"/> ans</span>
+                                    <span class="mx-1">|</span>
+                                </t>
+                                <t t-if="doc.patient_id.gender">
+                                    <span>Sexe: <span t-field="doc.patient_id.gender"/></span>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor Info (Right) -->
+                    <div class="col-6 text-end">
+                        <div class="p-2">
+                            <strong class="text-dark text-uppercase mb-2 d-block" style="letter-spacing: 1px;">Médecin Prescripteur</strong>
+                            <h5 class="mb-1">Dr. <span t-field="doc.doctor_id.name"/></h5>
+                            <div class="small text-muted">
+                                <span t-field="doc.doctor_id.specialization"/>
+                                <t t-if="doc.doctor_id.specialization and doc.doctor_id.department_id"> - </t>
+                                <span t-field="doc.doctor_id.department_id.name"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medicines Table -->
+                <table class="table table-sm table-striped border-bottom mb-3" style="font-size: 0.95em;">
+                    <thead style="background-color: #34495e; color: white;">
+                        <tr>
+                            <th style="width: 35%; padding: 8px;">Médicament</th>
+                            <th style="width: 20%; padding: 8px;">Dosage</th>
+                            <th style="width: 20%; padding: 8px;">Fréquence</th>
+                            <th style="width: 10%; padding: 8px;" class="text-end">Qté</th>
+                            <th style="width: 15%; padding: 8px;">Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="doc.prescription_line_ids" t-as="line">
+                            <td style="vertical-align: middle;"><span t-field="line.name" style="font-weight: 500;"/></td>
+                            <td style="vertical-align: middle;"><span t-field="line.dosage"/></td>
+                            <td style="vertical-align: middle;"><span t-field="line.frequency"/></td>
+                            <td style="vertical-align: middle;" class="text-end"><span t-field="line.quantity"/></td>
+                            <td style="vertical-align: middle;"><span t-field="line.note" class="text-muted small font-italic"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Notes Area -->
+                <div t-if="doc.note" class="mb-4 p-2 border rounded bg-white" style="font-size: 0.9em;">
+                    <strong>Instructions Spéciales:</strong>
+                    <div class="text-muted mt-1" t-field="doc.note"/>
+                </div>
+
+                <!-- Spacer to push signature down if content is short -->
+                <div class="row" style="min-height: 100px; flex-grow: 1;"></div>
+
+                <!-- Footer / Signature Section -->
+                <div class="row mt-4" style="page-break-inside: avoid;">
+                    <div class="col-6"></div> <!-- Spacer -->
+                    <div class="col-6">
+                        <div class="border rounded p-4 text-center bg-light position-relative" style="min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+                            
+                            <!-- Signature Title -->
+                            <div class="mb-3 fw-bold text-uppercase" style="font-size: 1.2em; letter-spacing: 2px; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">
+                                Signature et Cachet
+                            </div>
+                            
+                            <!-- Signature Image Area -->
+                            <div class="flex-grow-1 d-flex align-items-center justify-content-center py-3">
+                                <div t-if="doc.doctor_id.signature">
+                                    <img t-att-src="image_data_uri(doc.doctor_id.signature)" style="max-height: 120px; max-width: 100%;"/>
+                                </div>
+                                <div t-else="" class="text-muted small font-italic" style="color: #adb5bd;">
+                                    (Espace réservé au cachet)
+                                </div>
+                            </div>
+                            
+                            <!-- Doctor Name -->
+                            <div class="mt-2 fw-bold text-dark">Dr. <span t-field="doc.doctor_id.name"/></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Contacts (Very bottom) -->
+                <div class="text-center mt-5 pt-3 border-top text-muted small" t-if="doc.doctor_id.phone or doc.doctor_id.email">
+                   <span t-if="doc.doctor_id.phone" class="me-3"><i class="fa fa-phone me-1"/> <span t-field="doc.doctor_id.phone"/></span>
+                   <span t-if="doc.doctor_id.email"><i class="fa fa-envelope me-1"/> <span t-field="doc.doctor_id.email"/></span>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Main Template -->
+    <template id="report_prescription">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="gestion_hospitaliere.report_prescription_document"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

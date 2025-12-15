@@ -60,6 +60,7 @@
                         <group>
                             <field name="phone"/>
                             <field name="email"/>
+                            <field name="signature" widget="signature"/>
                             <field name="active" invisible="1"/>
                         </group>
                     </group>

@@ -43,7 +43,7 @@ class HospitalDashboard(models.TransientModel):
             
             # Active admissions
             rec.total_admissions_active = self.env['hospital.admission'].search_count([
-                ('state', '=', 'admitted')
+                ('state', '=', 'active')
             ])
             
             # Monthly revenue from paid bills

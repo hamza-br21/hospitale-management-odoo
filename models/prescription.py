@@ -25,6 +25,29 @@ class HospitalPrescription(models.Model):
             vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.prescription') or _('New')
         return super(HospitalPrescription, self).create(vals)
 
+    def action_send_email(self):
+        """ Opens a wizard to compose an email, with pre-loaded template """
+        self.ensure_one()
+        template_id = self.env.ref('gestion_hospitaliere.prescription_email_template').id
+        ctx = {
+            'default_model': 'hospital.prescription',
+            'default_res_ids': self.ids,
+            'default_use_template': bool(template_id),
+            'default_template_id': template_id,
+            'default_composition_mode': 'comment',
+            'mark_so_as_sent': True,
+            'force_email': True,
+        }
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'mail.compose.message',
+            'views': [(False, 'form')],
+            'view_id': False,
+            'target': 'new',
+            'context': ctx,
+        }
+
     def action_done(self):
         for rec in self:
             rec.state = 'done'

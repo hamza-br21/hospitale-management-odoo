@@ -27,6 +27,32 @@ class HospitalAppointment(models.Model):
         ('cancel', 'Cancelled'),
     ], string='Status', default='draft', required=True, tracking=True)
 
+    @api.constrains('doctor_id', 'date_appointment', 'duration')
+    def check_doctor_availability(self):
+        for rec in self:
+            if not rec.doctor_id or not rec.date_appointment:
+                continue
+            
+            # Calculate End Date
+            from datetime import timedelta
+            end_date = rec.date_appointment + timedelta(hours=rec.duration)
+            
+            # Search for overlapping appointments
+            # Logic: (StartA < EndB) and (EndA > StartB)
+            domain = [
+                ('doctor_id', '=', rec.doctor_id.id),
+                ('id', '!=', rec.id),
+                ('state', '!=', 'cancel'),
+                ('date_appointment', '<', end_date),
+            ]
+            
+            overlapping_appointments = self.search(domain)
+            
+            for appointment in overlapping_appointments:
+                appointment_end = appointment.date_appointment + timedelta(hours=appointment.duration)
+                if appointment_end > rec.date_appointment:
+                    raise ValidationError(_("Doctor %s is already booked at this time (Ref: %s).") % (rec.doctor_id.name, appointment.reference))
+
     @api.model
     def create(self, vals):
         if vals.get('reference', _('New')) == _('New'):
@@ -35,7 +61,7 @@ class HospitalAppointment(models.Model):
 
     def action_confirm(self):
         for rec in self:
-            rec.state = 'confirmed'
+            rec.write({'state': 'confirmed'})
 
     def action_done(self):
         for rec in self:
@@ -44,3 +70,29 @@ class HospitalAppointment(models.Model):
     def action_cancel(self):
         for rec in self:
             rec.state = 'cancel'
+
+    def write(self, vals):
+        # 1. Execute the write
+        res = super(HospitalAppointment, self).write(vals)
+        
+        # 2. Check for state change to 'confirmed'
+        if vals.get('state') == 'confirmed':
+            for rec in self:
+                rec._send_confirmation_email()
+        return res
+
+    def _send_confirmation_email(self):
+        """ Separate method to handle email sending logic """
+        self.ensure_one()
+        # Send Email Notification
+        if not self.patient_id.email:
+             # Warning instead of silent fail
+             raise ValidationError(_("Cannot send confirmation: Patient %s has no email address.") % self.patient_id.name)
+        
+        try:
+            template = self.env.ref('gestion_hospitaliere.appointment_confirmation_email_template', raise_if_not_found=True)
+            template.send_mail(self.id, force_send=True)
+        except ValueError:
+            raise ValidationError(_("Email Template 'appointment_confirmation_email_template' not found. Please update the module."))
+        except Exception as e:
+             raise ValidationError(_("Email sending failed: %s") % str(e))

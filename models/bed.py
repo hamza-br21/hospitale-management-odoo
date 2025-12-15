@@ -18,6 +18,7 @@ class HospitalBed(models.Model):
         ('occupied', 'Occupied'),
         ('maintenance', 'Maintenance'),
     ], string='Status', default='free', tracking=True)
+    active = fields.Boolean(string="Active", default=True)
     current_patient_id = fields.Many2one('hospital.patient', string='Current Patient', compute='_compute_current_patient', store=True)
     admission_ids = fields.One2many('hospital.admission', 'bed_id', string='Admissions')
     

@@ -16,6 +16,7 @@ class HospitalDoctor(models.Model):
     email = fields.Char(string='Email')
     department_id = fields.Many2one('hospital.department', string="Department", tracking=True)
     image = fields.Binary(string="Doctor Image")
+    signature = fields.Binary(string="Signature")
     active = fields.Boolean(string="Active", default=True)
     
     # Relational fields

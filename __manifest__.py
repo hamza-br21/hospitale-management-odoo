@@ -35,6 +35,8 @@
         'data/prescription_sequence.xml',
         'data/bill_sequence.xml',
         'data/cron_jobs.xml',
+        'data/mail_template.xml', # Added Mail Templates
+        'data/demo.xml',
         
         # Views
         'views/templates.xml',
@@ -53,9 +55,9 @@
         'views/prescription_views.xml',
         'views/bill_views.xml',
         'views/insurance_views.xml',
-    ],
-    'demo': [
-        'data/demo.xml',
+
+        # Reports
+        'reports/prescription_report.xml',
     ],
     'assets': {
         'web.assets_backend': [

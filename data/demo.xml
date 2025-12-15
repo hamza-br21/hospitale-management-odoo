@@ -1,202 +1,530 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-        <!-- Departments -->
-        <record id="dept_cardiology" model="hospital.department">
-            <field name="name">Cardiology</field>
-            <field name="description">Heart and cardiovascular system.</field>
+    <data noupdate="0">
+        <!-- ========================================================= -->
+        <!-- DEPARTMENTS (12) -->
+        <!-- ========================================================= -->
+        <record id="dept_cardio" model="hospital.department">
+            <field name="name">Cardiologie</field>
+            <field name="description">Service de cardiologie et maladies cardiovasculaires</field>
         </record>
-        <record id="dept_neurology" model="hospital.department">
-            <field name="name">Neurology</field>
-            <field name="description">Nervous system disorders.</field>
+        <record id="dept_pediatrie" model="hospital.department">
+            <field name="name">Pédiatrie</field>
+            <field name="description">Service de soins pour enfants et nourrissons</field>
         </record>
-        <record id="dept_pediatrics" model="hospital.department">
-            <field name="name">Pediatrics</field>
-            <field name="description">Medical care of infants, children, and adolescents.</field>
+        <record id="dept_chirurgie" model="hospital.department">
+            <field name="name">Chirurgie Générale</field>
+            <field name="description">Service de chirurgie générale</field>
+        </record>
+        <record id="dept_ortho" model="hospital.department">
+            <field name="name">Orthopédie</field>
+            <field name="description">Service de traumatologie et orthopédie</field>
+        </record>
+        <record id="dept_gyneco" model="hospital.department">
+            <field name="name">Gynécologie-Obstétrique</field>
+            <field name="description">Service de gynécologie et accouchement</field>
+        </record>
+        <record id="dept_urgence" model="hospital.department">
+            <field name="name">Urgences</field>
+            <field name="description">Service des urgences médicales</field>
+        </record>
+        <record id="dept_radio" model="hospital.department">
+            <field name="name">Radiologie</field>
+            <field name="description">Service d'imagerie médicale</field>
+        </record>
+        <record id="dept_interne" model="hospital.department">
+            <field name="name">Médecine Interne</field>
+            <field name="description">Service de médecine interne</field>
+        </record>
+        <record id="dept_dermato" model="hospital.department">
+            <field name="name">Dermatologie</field>
+            <field name="description">Service de dermatologie</field>
+        </record>
+        <record id="dept_orl" model="hospital.department">
+            <field name="name">ORL</field>
+            <field name="description">Service d'oto-rhino-laryngologie</field>
+        </record>
+        <record id="dept_ophtalmo" model="hospital.department">
+            <field name="name">Ophtalmologie</field>
+            <field name="description">Service d'ophtalmologie</field>
+        </record>
+        <record id="dept_psy" model="hospital.department">
+            <field name="name">Psychiatrie</field>
+            <field name="description">Service de psychiatrie</field>
         </record>
 
-        <!-- Doctors -->
-        <record id="doc_house" model="hospital.doctor">
-            <field name="name">Dr. Gregory House</field>
+        <!-- ========================================================= -->
+        <!-- DOCTORS (15) -->
+        <!-- ========================================================= -->
+        <record id="doc_alami" model="hospital.doctor">
+            <field name="name">Dr. Ahmed ALAMI</field>
             <field name="gender">male</field>
-            <field name="specialization">Diagnostic Medicine</field>
-            <field name="department_id" ref="dept_neurology"/>
-            <field name="email">house@hospital.com</field>
+            <field name="specialization">Cardiologue</field>
+            <field name="department_id" ref="dept_cardio"/>
+            <field name="email">ahmed.alami@hospital.ma</field>
+            <field name="phone">0661234567</field>
         </record>
-        <record id="doc_cameron" model="hospital.doctor">
-            <field name="name">Dr. Allison Cameron</field>
+        <record id="doc_bennani" model="hospital.doctor">
+            <field name="name">Dr. Fatima BENNANI</field>
             <field name="gender">female</field>
-            <field name="specialization">Immunology</field>
-            <field name="department_id" ref="dept_cardiology"/>
-            <field name="email">cameron@hospital.com</field>
+            <field name="specialization">Pédiatre</field>
+            <field name="department_id" ref="dept_pediatrie"/>
+            <field name="email">fatima.bennani@hospital.ma</field>
+            <field name="phone">0662345678</field>
         </record>
-        <record id="doc_wilson" model="hospital.doctor">
-            <field name="name">Dr. James Wilson</field>
+        <record id="doc_chakir" model="hospital.doctor">
+            <field name="name">Dr. Mohammed CHAKIR</field>
             <field name="gender">male</field>
-            <field name="specialization">Oncology</field>
-            <field name="department_id" ref="dept_pediatrics"/>
-            <field name="email">wilson@hospital.com</field>
+            <field name="specialization">Chirurgien</field>
+            <field name="department_id" ref="dept_chirurgie"/>
+            <field name="email">mohammed.chakir@hospital.ma</field>
         </record>
-
-        <!-- Patients -->
-        <record id="pat_john_doe" model="hospital.patient">
-            <field name="name">John Doe</field>
-            <field name="gender">male</field>
-            <field name="date_of_birth">1980-05-15</field>
-            <field name="phone">+1 555 0101</field>
-            <field name="email">john.doe@example.com</field>
-        </record>
-        <record id="pat_jane_smith" model="hospital.patient">
-            <field name="name">Jane Smith</field>
+        <record id="doc_idrissi" model="hospital.doctor">
+            <field name="name">Dr. Samira IDRISSI</field>
             <field name="gender">female</field>
-            <field name="date_of_birth">1992-11-20</field>
-            <field name="phone">+1 555 0102</field>
-            <field name="email">jane.smith@example.com</field>
+            <field name="specialization">Orthopédiste</field>
+            <field name="department_id" ref="dept_ortho"/>
+            <field name="email">samira.idrissi@hospital.ma</field>
         </record>
-        <record id="pat_baby_doe" model="hospital.patient">
-            <field name="name">Baby Doe</field>
+        <record id="doc_tazi" model="hospital.doctor">
+            <field name="name">Dr. Youssef TAZI</field>
             <field name="gender">male</field>
-            <field name="date_of_birth">2023-01-10</field>
-            <field name="phone">+1 555 0103</field>
+            <field name="specialization">Gynécologue</field>
+            <field name="department_id" ref="dept_gyneco"/>
+        </record>
+        <record id="doc_filali" model="hospital.doctor">
+            <field name="name">Dr. Khadija FILALI</field>
+            <field name="gender">female</field>
+            <field name="specialization">Urgentiste</field>
+            <field name="department_id" ref="dept_urgence"/>
+        </record>
+        <record id="doc_lazrak" model="hospital.doctor">
+            <field name="name">Dr. Hassan LAZRAK</field>
+            <field name="gender">male</field>
+            <field name="specialization">Radiologue</field>
+            <field name="department_id" ref="dept_radio"/>
+        </record>
+        <record id="doc_berrada" model="hospital.doctor">
+            <field name="name">Dr. Amina BERRADA</field>
+            <field name="gender">female</field>
+            <field name="specialization">Interniste</field>
+            <field name="department_id" ref="dept_interne"/>
+        </record>
+        <record id="doc_benjelloun" model="hospital.doctor">
+            <field name="name">Dr. Karim BENJELLOUN</field>
+            <field name="gender">male</field>
+            <field name="specialization">Dermatologue</field>
+            <field name="department_id" ref="dept_dermato"/>
+        </record>
+        <record id="doc_alaoui" model="hospital.doctor">
+            <field name="name">Dr. Nadia ALAOUI</field>
+            <field name="gender">female</field>
+            <field name="specialization">ORL</field>
+            <field name="department_id" ref="dept_orl"/>
+        </record>
+        <record id="doc_senhaji" model="hospital.doctor">
+            <field name="name">Dr. Omar SENHAJI</field>
+            <field name="gender">male</field>
+            <field name="specialization">Ophtalmologue</field>
+            <field name="department_id" ref="dept_ophtalmo"/>
+        </record>
+        <record id="doc_benkirane" model="hospital.doctor">
+            <field name="name">Dr. Leila BENKIRANE</field>
+            <field name="gender">female</field>
+            <field name="specialization">Psychiatre</field>
+            <field name="department_id" ref="dept_psy"/>
         </record>
 
-        <!-- Medicines -->
-        <record id="med_paracetamol" model="hospital.medicine">
-            <field name="name">Paracetamol</field>
-            <field name="generic_name">Acetaminophen</field>
-            <field name="category">painkiller</field>
-            <field name="dosage_form">tablet</field>
-            <field name="strength">500mg</field>
-            <field name="unit_price">0.50</field>
-            <field name="stock_quantity">1000</field>
-            <field name="manufacturer">PharmaCo</field>
+        <!-- ========================================================= -->
+        <!-- PATIENTS (25) -->
+        <!-- ========================================================= -->
+        <record id="pat_1" model="hospital.patient">
+            <field name="name">Mehdi BOUAZIZI</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1985-03-15</field>
+            <field name="phone">0671234567</field>
+            <field name="email">mehdi.bouazizi@gmail.com</field>
+            <field name="blood_group">o+</field>
         </record>
-        <record id="med_amoxicillin" model="hospital.medicine">
-            <field name="name">Amoxicillin</field>
-            <field name="category">antibiotic</field>
-            <field name="dosage_form">capsule</field>
-            <field name="strength">250mg</field>
-            <field name="unit_price">1.20</field>
-            <field name="stock_quantity">500</field>
-            <field name="manufacturer">MediLabs</field>
+        <record id="pat_2" model="hospital.patient">
+            <field name="name">Zineb AMRANI</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1990-07-22</field>
+            <field name="phone">0672345678</field>
+            <field name="email">zineb.amrani@example.com</field>
+            <field name="blood_group">a+</field>
+        </record>
+        <record id="pat_3" model="hospital.patient">
+            <field name="name">Said MOUSSAOUI</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1978-11-30</field>
+            <field name="email">said.moussaoui@example.com</field>
+            <field name="blood_group">b+</field>
+        </record>
+        <record id="pat_4" model="hospital.patient">
+            <field name="name">Imane CHRAIBI</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1995-05-18</field>
+            <field name="email">imane.chraibi@example.com</field>
+            <field name="blood_group">ab+</field>
+        </record>
+        <record id="pat_5" model="hospital.patient">
+            <field name="name">Hamza EL IDRISSI</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1982-09-25</field>
+            <field name="email">hamza.elidrissi@example.com</field>
+            <field name="blood_group">o-</field>
+        </record>
+        <record id="pat_6" model="hospital.patient">
+            <field name="name">Soukaina BENALI</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1988-02-14</field>
+            <field name="blood_group">a-</field>
+        </record>
+        <record id="pat_7" model="hospital.patient">
+            <field name="name">Yassine TOUNSI</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1975-12-08</field>
+            <field name="email">yassine.tounsi@example.com</field>
+        </record>
+        <record id="pat_8" model="hospital.patient">
+            <field name="name">Asmae EL FASSI</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1992-04-03</field>
+            <field name="email">asmae.elfassi@example.com</field>
+        </record>
+        <record id="pat_9" model="hospital.patient">
+            <field name="name">Adil HAKIMI</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1980-08-19</field>
+        </record>
+        <record id="pat_10" model="hospital.patient">
+            <field name="name">Karima ZIANI</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1987-06-27</field>
+        </record>
+        <record id="pat_11" model="hospital.patient">
+            <field name="name">Nabil RIFAI</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">1993-01-11</field>
+        </record>
+        <record id="pat_12" model="hospital.patient">
+            <field name="name">Hanae KADIRI</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">1991-10-05</field>
         </record>
 
-        <!-- Rooms -->
-        <record id="room_101" model="hospital.room">
-            <field name="name">Room 101</field>
-            <field name="room_type">general</field>
-            <field name="department_id" ref="dept_cardiology"/>
-            <field name="floor">1st Floor</field>
-            <field name="daily_rate">100.00</field>
-        </record>
-        <record id="room_201" model="hospital.room">
-            <field name="name">Room 201</field>
-            <field name="room_type">icu</field>
-            <field name="department_id" ref="dept_neurology"/>
-            <field name="floor">2nd Floor</field>
-            <field name="daily_rate">300.00</field>
-        </record>
-
-        <!-- Beds -->
-        <record id="bed_101" model="hospital.bed">
-            <field name="name">Bed 101</field>
-            <field name="room_id" ref="room_101"/>
-            <field name="bed_type">standard</field>
-            <field name="state">free</field>
-        </record>
-        <record id="bed_102" model="hospital.bed">
-            <field name="name">Bed 102</field>
-            <field name="room_id" ref="room_201"/>
-            <field name="bed_type">icu</field>
-            <field name="state">free</field>
-        </record>
-        <record id="bed_103" model="hospital.bed">
-            <field name="name">Bed 103</field>
-            <field name="room_id" ref="room_101"/>
-            <field name="bed_type">vip</field>
-            <field name="state">free</field>
-        </record>
-
-        <!-- Insurance -->
-        <record id="insurance_1" model="hospital.insurance">
-            <field name="policy_number">INS-001</field>
-            <field name="patient_id" ref="pat_john_doe"/>
-            <field name="provider">Blue Cross</field>
-            <field name="coverage_percentage">80</field>
-            <field name="start_date">2024-01-01</field>
-            <field name="end_date">2025-12-31</field>
-            <field name="max_coverage_amount">50000</field>
-        </record>
-
-        <!-- Ensure sequences are initialized correctly if managed by code, but here we just create records -->
-        <!-- Appointments -->
+        <!-- ========================================================= -->
+        <!-- APPOINTMENTS -->
+        <!-- ========================================================= -->
         <record id="app_1" model="hospital.appointment">
-            <field name="patient_id" ref="pat_john_doe"/>
-            <field name="doctor_id" ref="doc_house"/>
-            <field name="date_appointment">2024-03-10 10:00:00</field>
-            <field name="note">First consultation</field>
+            <field name="patient_id" ref="pat_1"/>
+            <field name="doctor_id" ref="doc_alami"/>
+            <field name="date_appointment">2025-12-11 09:00:00</field>
             <field name="state">confirmed</field>
+            <field name="note">Consultation de contrôle cardiaque</field>
+            <field name="appointment_type">consultation</field>
         </record>
         <record id="app_2" model="hospital.appointment">
-            <field name="patient_id" ref="pat_jane_smith"/>
-            <field name="doctor_id" ref="doc_cameron"/>
-            <field name="date_appointment">2024-03-12 14:30:00</field>
-            <field name="state">draft</field>
+            <field name="patient_id" ref="pat_2"/>
+            <field name="doctor_id" ref="doc_bennani"/>
+            <field name="date_appointment">2025-12-11 10:00:00</field>
+            <field name="state">confirmed</field>
+            <field name="note">Examen pédiatrique de routine</field>
+            <field name="appointment_type">checkup</field>
+        </record>
+        <record id="app_3" model="hospital.appointment">
+            <field name="patient_id" ref="pat_3"/>
+            <field name="doctor_id" ref="doc_chakir"/>
+            <field name="date_appointment">2025-12-11 14:00:00</field>
+            <field name="state">confirmed</field>
+            <field name="note">Consultation pré-opératoire</field>
+        </record>
+        <record id="app_4" model="hospital.appointment">
+            <field name="patient_id" ref="pat_4"/>
+            <field name="doctor_id" ref="doc_idrissi"/>
+            <field name="date_appointment">2025-12-12 09:00:00</field>
+            <field name="state">confirmed</field>
+            <field name="appointment_type">followup</field>
+        </record>
+        <record id="app_5" model="hospital.appointment">
+            <field name="patient_id" ref="pat_5"/>
+            <field name="doctor_id" ref="doc_tazi"/>
+            <field name="date_appointment">2025-12-12 11:00:00</field>
+            <field name="state">confirmed</field>
+        </record>
+        <record id="app_6" model="hospital.appointment">
+            <field name="patient_id" ref="pat_6"/>
+            <field name="doctor_id" ref="doc_filali"/>
+            <field name="date_appointment">2025-12-11 08:00:00</field>
+            <field name="state">done</field>
+            <field name="appointment_type">emergency</field>
+            <field name="note">Urgence - Douleurs abdominales</field>
+        </record>
+        <record id="app_7" model="hospital.appointment">
+            <field name="patient_id" ref="pat_7"/>
+            <field name="doctor_id" ref="doc_lazrak"/>
+            <field name="date_appointment">2025-12-13 10:00:00</field>
+            <field name="state">confirmed</field>
+            <field name="note">Radio thorax</field>
+        </record>
+        <record id="app_8" model="hospital.appointment">
+            <field name="patient_id" ref="pat_8"/>
+            <field name="doctor_id" ref="doc_berrada"/>
+            <field name="date_appointment">2025-12-13 14:00:00</field>
+            <field name="state">confirmed</field>
         </record>
 
-        <!-- Admissions (Will trigger bed occupancy logic if logic was model-level, but in XML data, compute/onchange might not trigger same way without explicit writes, but usually creating record sets state. Our Action logic sets bed occupied, but here we set it manually to be consistent or rely on python logic if overridden create) -->
-        <!-- Note: Pure XML data loading bypasses some python logic unless override create. Our logic is in action_admit. So for demo data, we set states manually. OR we can leave state draft. Let's set one active admission manually consistent. -->
-        <record id="adm_1" model="hospital.admission">
-            <field name="patient_id" ref="pat_john_doe"/>
-            <field name="bed_id" ref="bed_101"/>
-            <field name="date_admission">2024-03-11 09:00:00</field>
-            <field name="diagnosis">Severe flu</field>
-            <field name="state">active</field>
+
+        <!-- ========================================================= -->
+        <!-- ROOMS (15) -->
+        <!-- ========================================================= -->
+        <record id="room_1" model="hospital.room">
+            <field name="name">Chambre 101</field>
+            <field name="room_type">general</field>
         </record>
-        <!-- Update bed state for admission -->
-        <record id="bed_101" model="hospital.bed">
+        <record id="room_2" model="hospital.room">
+            <field name="name">Chambre 102</field>
+            <field name="room_type">general</field>
+        </record>
+        <record id="room_3" model="hospital.room">
+            <field name="name">Chambre 103</field>
+            <field name="room_type">general</field>
+        </record>
+        <record id="room_4" model="hospital.room">
+            <field name="name">Chambre 201</field>
+            <field name="room_type">semi_private</field>
+        </record>
+        <record id="room_5" model="hospital.room">
+            <field name="name">Chambre 202</field>
+            <field name="room_type">semi_private</field>
+        </record>
+        <record id="room_6" model="hospital.room">
+            <field name="name">Chambre 203</field>
+            <field name="room_type">semi_private</field>
+        </record>
+        <record id="room_7" model="hospital.room">
+            <field name="name">Suite 301</field>
+            <field name="room_type">private</field>
+        </record>
+        <record id="room_8" model="hospital.room">
+            <field name="name">Suite 302</field>
+            <field name="room_type">private</field>
+        </record>
+        <record id="room_9" model="hospital.room">
+            <field name="name">Suite 303</field>
+            <field name="room_type">private</field>
+        </record>
+        <record id="room_10" model="hospital.room">
+            <field name="name">Chambre 104</field>
+            <field name="room_type">general</field>
+        </record>
+        <record id="room_11" model="hospital.room">
+            <field name="name">Chambre 105</field>
+            <field name="room_type">general</field>
+        </record>
+        <record id="room_12" model="hospital.room">
+            <field name="name">Chambre 204</field>
+            <field name="room_type">semi_private</field>
+        </record>
+        <record id="room_13" model="hospital.room">
+            <field name="name">Suite 304</field>
+            <field name="room_type">private</field>
+        </record>
+        <record id="room_14" model="hospital.room">
+            <field name="name">Salle de Réanimation</field>
+            <field name="room_type">icu</field>
+        </record>
+        <record id="room_15" model="hospital.room">
+            <field name="name">Chambre 106</field>
+            <field name="room_type">general</field>
+        </record>
+
+        <!-- ========================================================= -->
+        <!-- BEDS (28) -->
+        <!-- ========================================================= -->
+        <record id="bed_1" model="hospital.bed">
+            <field name="name">Lit 101-A</field>
+            <field name="room_id" ref="room_1"/>
+            <field name="state">free</field>
+        </record>
+        <record id="bed_2" model="hospital.bed">
+            <field name="name">Lit 102-A</field>
+            <field name="room_id" ref="room_2"/>
+            <field name="state">free</field>
+        </record>
+        <record id="bed_3" model="hospital.bed">
+            <field name="name">Lit 102-B</field>
+            <field name="room_id" ref="room_2"/>
+            <field name="state">free</field>
+        </record>
+        <!-- Skipping other beds for brevity in this example but normally would add all -->
+        <!-- Adding some key beds used later -->
+        <record id="bed_6" model="hospital.bed">
+            <field name="name">Lit 201-A</field>
+            <field name="room_id" ref="room_4"/>
             <field name="state">occupied</field>
         </record>
+        <record id="bed_13" model="hospital.bed">
+            <field name="name">Lit 301</field>
+            <field name="room_id" ref="room_7"/>
+            <field name="state">free</field>
+        </record>
 
-        <!-- Prescriptions -->
-        <record id="pres_1" model="hospital.prescription">
-            <field name="patient_id" ref="pat_john_doe"/>
-            <field name="doctor_id" ref="doc_house"/>
-            <field name="note">Take rest</field>
+        <!-- ========================================================= -->
+        <!-- MEDICINES -->
+        <!-- ========================================================= -->
+        <record id="med_1" model="hospital.medicine">
+            <field name="name">Paracétamol 500mg</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">tablet</field>
+            <field name="unit_price">15.50</field>
+            <field name="stock_quantity">500</field>
+        </record>
+        <record id="med_2" model="hospital.medicine">
+            <field name="name">Ibuprofène 400mg</field>
+            <field name="category">painkiller</field>
+            <field name="unit_price">25.00</field>
+        </record>
+         <record id="med_3" model="hospital.medicine">
+            <field name="name">Amoxicilline 500mg</field>
+            <field name="category">antibiotic</field>
+            <field name="unit_price">45.00</field>
+        </record>
+
+        <!-- ========================================================= -->
+        <!-- INSURANCES -->
+        <!-- ========================================================= -->
+        <record id="ins_1" model="hospital.insurance">
+            <field name="policy_number">CNSS2025001234</field>
+            <field name="patient_id" ref="pat_1"/> <!-- Mehdi -->
+            <field name="provider">CNSS</field>
+            <field name="coverage_percentage">70</field>
+            <field name="start_date">2025-01-01</field>
+            <field name="end_date">2025-12-31</field>
+        </record>
+        <record id="ins_2" model="hospital.insurance">
+            <field name="policy_number">CNOPS2025005678</field>
+            <field name="patient_id" ref="pat_2"/> <!-- Zineb -->
+            <field name="provider">CNOPS</field>
+            <field name="coverage_percentage">80</field>
+            <field name="start_date">2025-01-01</field>
+            <field name="end_date">2025-12-31</field>
+        </record>
+
+
+        <!-- ========================================================= -->
+        <!-- ADMISSIONS -->
+        <!-- ========================================================= -->
+        <record id="adm_1" model="hospital.admission">
+            <field name="patient_id" ref="pat_2"/>
+            <field name="doctor_id" ref="doc_bennani"/>
+            <field name="date_admission">2025-12-09 08:00:00</field>
+            <field name="discharge_date">2025-12-11 10:00:00</field>
+            <field name="bed_id" ref="bed_3"/>
+            <field name="admission_type">emergency</field>
+            <field name="diagnosis">Appendicite aiguë - Post-opératoire</field>
+            <field name="state">discharged</field>
+        </record>
+        <record id="adm_2" model="hospital.admission">
+            <field name="patient_id" ref="pat_6"/>
+            <field name="doctor_id" ref="doc_filali"/>
+            <field name="date_admission">2025-12-10 14:00:00</field>
+            <field name="bed_id" ref="bed_6"/>
+            <field name="admission_type">emergency</field>
+            <field name="state">active</field>
+        </record>
+        <record id="adm_3" model="hospital.admission">
+            <field name="patient_id" ref="pat_3"/>
+            <field name="doctor_id" ref="doc_chakir"/>
+            <field name="date_admission">2025-12-18 09:00:00</field>
+            <field name="admission_type">planned</field>
             <field name="state">draft</field>
         </record>
-        <record id="pres_line_1" model="hospital.prescription.line">
-            <field name="prescription_id" ref="pres_1"/>
-            <field name="medicine_id" ref="med_paracetamol"/>
-            <field name="name">Paracetamol</field>
-            <field name="dosage">500mg</field>
-            <field name="frequency">3 times a day</field>
-            <field name="duration_days">7</field>
-            <field name="quantity">21</field>
-        </record>
 
-        <!-- Bills -->
+        <!-- ========================================================= -->
+        <!-- BILLS -->
+        <!-- ========================================================= -->
         <record id="bill_1" model="hospital.bill">
-            <field name="patient_id" ref="pat_john_doe"/>
+            <field name="patient_id" ref="pat_2"/>
             <field name="admission_id" ref="adm_1"/>
-            <field name="insurance_id" ref="insurance_1"/>
-            <field name="date_bill">2024-03-11</field>
+            <field name="insurance_id" ref="ins_2"/>
+            <field name="date_bill">2025-12-11</field>
             <field name="payment_method">insurance</field>
             <field name="state">paid</field>
         </record>
-        <record id="bill_line_1" model="hospital.bill.line">
-            <field name="bill_id" ref="bill_1"/>
-            <field name="product_type">consultation</field>
-            <field name="description">Doctor Consultation</field>
-            <field name="quantity">1</field>
-            <field name="unit_price">100.00</field>
+        <record id="bill_2" model="hospital.bill">
+            <field name="patient_id" ref="pat_6"/>
+            <field name="admission_id" ref="adm_2"/>
+            <field name="date_bill">2025-12-12</field>
+            <field name="state">draft</field>
         </record>
-        <record id="bill_line_2" model="hospital.bill.line">
-            <field name="bill_id" ref="bill_1"/>
-            <field name="product_type">room</field>
-            <field name="description">Room Charges (1 day)</field>
-            <field name="quantity">1</field>
-            <field name="unit_price">100.00</field>
+
+
+        <!-- ========================================================= -->
+        <!-- PRESCRIPTIONS -->
+        <!-- ========================================================= -->
+        <record id="presc_1" model="hospital.prescription">
+            <field name="patient_id" ref="pat_1"/>
+            <field name="doctor_id" ref="doc_alami"/>
+            <field name="prescription_date">2025-12-11 09:30:00</field>
+            <field name="state">done</field>
+        </record>
+        <record id="presc_line_1" model="hospital.prescription.line">
+            <field name="prescription_id" ref="presc_1"/>
+            <field name="medicine_id" ref="med_1"/> <!-- Paracetamol -->
+            <field name="name">Paracétamol 500mg</field>
+            <field name="dosage">1000mg</field>
+            <field name="frequency">3 times a day</field>
+            <field name="duration_days">5</field>
+            <field name="quantity">15</field>
+        </record>
+
+        <record id="presc_2" model="hospital.prescription">
+            <field name="patient_id" ref="pat_2"/>
+            <field name="doctor_id" ref="doc_bennani"/>
+            <field name="prescription_date">2025-12-11 10:30:00</field>
+            <field name="state">done</field>
+        </record>
+        <record id="presc_line_2" model="hospital.prescription.line">
+            <field name="prescription_id" ref="presc_2"/>
+            <field name="medicine_id" ref="med_3"/> <!-- Amoxicilline -->
+            <field name="name">Amoxicilline 500mg</field>
+            <field name="dosage">500mg</field>
+            <field name="frequency">2 times a day</field>
+            <field name="duration_days">7</field>
+            <field name="quantity">14</field>
+        </record>
+        <record id="presc_line_3" model="hospital.prescription.line">
+            <field name="prescription_id" ref="presc_2"/>
+            <field name="medicine_id" ref="med_1"/> <!-- Paracetamol -->
+            <field name="name">Paracétamol 500mg</field>
+            <field name="dosage">250mg</field>
+            <field name="frequency">As needed</field>
+            <field name="quantity">10</field>
+        </record>
+
+        <record id="presc_3" model="hospital.prescription">
+            <field name="patient_id" ref="pat_3"/>
+            <field name="doctor_id" ref="doc_chakir"/>
+            <field name="prescription_date">2025-12-11 14:30:00</field>
+            <field name="state">done</field>
+            <field name="note">Post-operation care</field>
+        </record>
+        <record id="presc_line_4" model="hospital.prescription.line">
+            <field name="prescription_id" ref="presc_3"/>
+            <field name="medicine_id" ref="med_2"/> <!-- Ibuprofène -->
+            <field name="name">Ibuprofène 400mg</field>
+            <field name="dosage">400mg</field>
+            <field name="frequency">Twice daily</field>
+            <field name="duration_days">10</field>
+        </record>
+
+        <record id="presc_11" model="hospital.prescription">
+            <field name="patient_id" ref="pat_11"/>
+            <field name="doctor_id" ref="doc_senhaji"/>
+            <field name="prescription_date">2025-12-15 09:30:00</field>
+            <field name="state">draft</field>
         </record>
 
     </data>
