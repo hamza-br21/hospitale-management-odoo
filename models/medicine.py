@@ -30,6 +30,11 @@ class HospitalMedicine(models.Model):
         ('injection', 'Injection'),
         ('cream', 'Cream'),
         ('drops', 'Drops'),
+        ('inhaler', 'Inhaler'),
+        ('solution', 'Solution'),
+        ('powder', 'Powder'),
+        ('effervescent', 'Effervescent Tablet'),
+        ('upsa', 'UPSA (Effervescent)'),
     ], string='Dosage Form', default='tablet')
     strength = fields.Char(string='Strength', help='e.g. 500mg, 10ml')
     expiry_date = fields.Date(string='Expiry Date')

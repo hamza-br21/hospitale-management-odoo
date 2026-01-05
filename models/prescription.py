@@ -28,7 +28,7 @@ class HospitalPrescription(models.Model):
     def action_send_email(self):
         """ Opens a wizard to compose an email, with pre-loaded template """
         self.ensure_one()
-        template_id = self.env.ref('gestion_hospitaliere.prescription_email_template').id
+        template_id = self.env.ref('gestion_hospitaliere.prescription_email_template_new').id
         ctx = {
             'default_model': 'hospital.prescription',
             'default_res_ids': self.ids,
@@ -61,11 +61,11 @@ class HospitalPrescriptionLine(models.Model):
     _description = "Prescription Line"
 
     prescription_id = fields.Many2one('hospital.prescription', string="Prescription", required=True, ondelete='cascade')
-    medicine_id = fields.Many2one('hospital.medicine', string="Medicine", domain="[('active', '=', True)]")
+    medicine_id = fields.Many2one('hospital.medicine', string="Medicine", domain="[('active', '=', True)]", required=True)
     name = fields.Char(string="Medicine", required=True)
     user_id = fields.Many2one('res.users', string="Prescribed By", default=lambda self: self.env.user)
-    dosage = fields.Char(string="Dosage", help="e.g. 500mg")
-    frequency = fields.Char(string="Frequency", help="e.g. 2 times a day")
+    dosage_id = fields.Many2one('hospital.dosage', string="Dosage")
+    frequency_id = fields.Many2one('hospital.frequency', string="Frequency")
     duration_days = fields.Integer(string="Duration (Days)", default=7)
     quantity = fields.Integer(string="Quantity", default=1)
     note = fields.Char(string="Instruction")

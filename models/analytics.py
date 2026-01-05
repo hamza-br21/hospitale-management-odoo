@@ -235,7 +235,7 @@ class HospitalAnalytics(models.TransientModel):
             
             doctor_stats.append({
                 'name': doctor.name,
-                'specialization': doctor.specialization or 'General',
+                'specialization': ', '.join(doctor.specialization_ids.mapped('name')) or 'General',
                 'department': doctor.department_id.name if doctor.department_id else 'N/A',
                 'appointments': len(appointments),
                 'completed_appointments': completed,

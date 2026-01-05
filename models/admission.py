@@ -72,34 +72,50 @@ class HospitalAdmission(models.Model):
         # 2. Handle state change to 'active' (re-admission) or initial activation
         if vals.get('state') == 'active':
             for rec in self:
-                # Only check if we are NOT already active (to allow idempotent updates/demo data)
                 if rec.state != 'active':
-                    # If bed_id is in vals, we will handle it in the second block.
-                    # If bed_id is NOT in vals, we must validate the current rec.bed_id
-                    if not vals.get('bed_id') and rec.bed_id:
-                        if rec.bed_id.state != 'free':
-                            raise ValidationError(_("The bed %s is already occupied by another patient!") % rec.bed_id.name)
-                        rec.bed_id.state = 'occupied'
-                    rec.discharge_date = False
-        
-        # 3. Handle bed change while active
+                    # Determine which bed we are validating (current or new)
+                    target_bed_id = vals.get('bed_id') or rec.bed_id.id
+                    if target_bed_id:
+                        # Check for ACTUAL active admissions for this bed, excluding current record
+                        existing_active = self.search([
+                            ('bed_id', '=', target_bed_id),
+                            ('state', '=', 'active'),
+                            ('id', '!=', rec.id)
+                        ], limit=1)
+                        
+                        if existing_active:
+                             raise ValidationError(_("The bed is occupied by patient %s (Reference: %s)") % (existing_active.patient_id.name, existing_active.reference))
+                        
+                        # Mark bed as occupied (even if it was already 'occupied' by mistake/phantom)
+                        self.env['hospital.bed'].browse(target_bed_id).write({'state': 'occupied'})
+                        rec.discharge_date = False
+
+        # 3. Handle bed change (independent of state change, or WITH state change)
         if vals.get('bed_id'):
             for rec in self:
+                old_bed = rec.bed_id
                 new_bed_id = vals.get('bed_id')
-                # Only proceed if the bed is actually changing
-                if rec.bed_id.id != new_bed_id:
-                    if rec.state == 'active' and rec.bed_id:
-                         rec.bed_id.state = 'free' # Free old bed
-                    
-                    new_bed = self.env['hospital.bed'].browse(new_bed_id)
-                    # Use 'active' from vals if available (switching to active), or current state
-                    new_state = vals.get('state') or rec.state
-                    
-                    if new_state == 'active' and new_bed.state != 'free':
-                         raise ValidationError(_("The bed %s is not free!") % new_bed.name)
-                    
-                    if new_state == 'active':
-                        new_bed.state = 'occupied'
+                
+                if old_bed.id != new_bed_id:
+                     # If we are active (or becoming active), the OLD bed must be freed
+                     # But only if we are truly moving (not just setting same ID)
+                     is_becoming_active = (vals.get('state') == 'active') or (rec.state == 'active' and vals.get('state') != 'discharged')
+                     
+                     if is_becoming_active and old_bed:
+                         old_bed.write({'state': 'free'})
+                     
+                     if is_becoming_active:
+                         # We already validated availability in Block 2 if state is changing to active.
+                         # But if state IS ALREADY active and we just change bed, we must validate new bed here.
+                         if not vals.get('state') == 'active': # If not handled by Block 2
+                             existing_active = self.search([
+                                ('bed_id', '=', new_bed_id),
+                                ('state', '=', 'active'),
+                                ('id', '!=', rec.id)
+                             ], limit=1)
+                             if existing_active:
+                                 raise ValidationError(_("The bed is occupied by patient %s") % existing_active.patient_id.name)
+                             self.env['hospital.bed'].browse(new_bed_id).write({'state': 'occupied'})
 
         return super(HospitalAdmission, self).write(vals)
 

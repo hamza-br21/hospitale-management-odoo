@@ -7,13 +7,13 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <search string="Doctors">
-                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('specialization', 'ilike', self)]"/>
-                <field name="specialization"/>
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('specialization_ids', 'ilike', self)]"/>
+                <field name="specialization_ids"/>
                 <separator/>
                 <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
                 <filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Specialization" name="group_by_specialization" context="{'group_by':'specialization'}"/>
+                    <filter string="Department" name="group_by_department" context="{'group_by':'department_id'}"/>
                 </group>
             </search>
         </field>
@@ -27,7 +27,7 @@
             <tree string="Doctors" sample="1">
                 <field name="name"/>
                 <field name="gender"/>
-                <field name="specialization"/>
+                <field name="specialization_ids" widget="many2many_tags"/>
                 <field name="phone"/>
             </tree>
         </field>
@@ -54,7 +54,7 @@
                     <group>
                         <group>
                             <field name="gender"/>
-                            <field name="specialization"/>
+                            <field name="specialization_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             <field name="department_id"/>
                         </group>
                         <group>
@@ -75,12 +75,48 @@
         </field>
     </record>
 
+    <!-- Kanban View -->
+    <record id="view_hospital_doctor_kanban" model="ir.ui.view">
+        <field name="name">hospital.doctor.kanban</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="image"/>
+                <field name="specialization_ids"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hospital_doctor_kanban">
+                            <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('hospital.doctor', 'image', record.id.raw_value)}')"/>
+                            <div class="o_kanban_image d-md-none">
+                                <img class="o_kanban_image_inner_pic" t-att-src="kanban_image('hospital.doctor', 'image', record.id.raw_value)" alt="Avatar"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                <div class="o_kanban_tags_section">
+                                    <field name="specialization_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li t-if="record.phone.raw_value"><i class="fa fa-phone me-1" title="Phone"/> <field name="phone"/></li>
+                                    <li t-if="record.email.raw_value"><i class="fa fa-envelope me-1" title="Email"/> <field name="email"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- Action -->
     <record id="action_hospital_doctor" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.doctor</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

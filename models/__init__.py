@@ -11,6 +11,9 @@ from . import admission
 from . import prescription
 from . import bill
 from . import insurance
+from . import insurance_provider
+from . import specialization
+from . import prescription_config
 from . import dashboard
 from . import notification
 from . import analytics

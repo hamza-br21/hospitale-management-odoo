@@ -54,12 +54,52 @@
         </record>
 
         <!-- ========================================================= -->
+        <!-- SPECIALIZATIONS -->
+        <!-- ========================================================= -->
+        <record id="spec_cardio" model="hospital.specialization">
+            <field name="name">Cardiologue</field>
+        </record>
+        <record id="spec_pediatre" model="hospital.specialization">
+            <field name="name">Pédiatre</field>
+        </record>
+        <record id="spec_chirurgien" model="hospital.specialization">
+            <field name="name">Chirurgien</field>
+        </record>
+        <record id="spec_ortho" model="hospital.specialization">
+            <field name="name">Orthopédiste</field>
+        </record>
+        <record id="spec_gyneco" model="hospital.specialization">
+            <field name="name">Gynécologue</field>
+        </record>
+        <record id="spec_urgentiste" model="hospital.specialization">
+            <field name="name">Urgentiste</field>
+        </record>
+        <record id="spec_radio" model="hospital.specialization">
+            <field name="name">Radiologue</field>
+        </record>
+        <record id="spec_interniste" model="hospital.specialization">
+            <field name="name">Interniste</field>
+        </record>
+        <record id="spec_dermato" model="hospital.specialization">
+            <field name="name">Dermatologue</field>
+        </record>
+        <record id="spec_orl" model="hospital.specialization">
+            <field name="name">ORL</field>
+        </record>
+        <record id="spec_ophtalmo" model="hospital.specialization">
+            <field name="name">Ophtalmologue</field>
+        </record>
+        <record id="spec_psy" model="hospital.specialization">
+            <field name="name">Psychiatre</field>
+        </record>
+
+        <!-- ========================================================= -->
         <!-- DOCTORS (15) -->
         <!-- ========================================================= -->
         <record id="doc_alami" model="hospital.doctor">
             <field name="name">Dr. Ahmed ALAMI</field>
             <field name="gender">male</field>
-            <field name="specialization">Cardiologue</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_cardio'))]"/>
             <field name="department_id" ref="dept_cardio"/>
             <field name="email">ahmed.alami@hospital.ma</field>
             <field name="phone">0661234567</field>
@@ -67,7 +107,7 @@
         <record id="doc_bennani" model="hospital.doctor">
             <field name="name">Dr. Fatima BENNANI</field>
             <field name="gender">female</field>
-            <field name="specialization">Pédiatre</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_pediatre'))]"/>
             <field name="department_id" ref="dept_pediatrie"/>
             <field name="email">fatima.bennani@hospital.ma</field>
             <field name="phone">0662345678</field>
@@ -75,63 +115,63 @@
         <record id="doc_chakir" model="hospital.doctor">
             <field name="name">Dr. Mohammed CHAKIR</field>
             <field name="gender">male</field>
-            <field name="specialization">Chirurgien</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_chirurgien'))]"/>
             <field name="department_id" ref="dept_chirurgie"/>
             <field name="email">mohammed.chakir@hospital.ma</field>
         </record>
         <record id="doc_idrissi" model="hospital.doctor">
             <field name="name">Dr. Samira IDRISSI</field>
             <field name="gender">female</field>
-            <field name="specialization">Orthopédiste</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_ortho'))]"/>
             <field name="department_id" ref="dept_ortho"/>
             <field name="email">samira.idrissi@hospital.ma</field>
         </record>
         <record id="doc_tazi" model="hospital.doctor">
             <field name="name">Dr. Youssef TAZI</field>
             <field name="gender">male</field>
-            <field name="specialization">Gynécologue</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_gyneco'))]"/>
             <field name="department_id" ref="dept_gyneco"/>
         </record>
         <record id="doc_filali" model="hospital.doctor">
             <field name="name">Dr. Khadija FILALI</field>
             <field name="gender">female</field>
-            <field name="specialization">Urgentiste</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_urgentiste'))]"/>
             <field name="department_id" ref="dept_urgence"/>
         </record>
         <record id="doc_lazrak" model="hospital.doctor">
             <field name="name">Dr. Hassan LAZRAK</field>
             <field name="gender">male</field>
-            <field name="specialization">Radiologue</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_radio'))]"/>
             <field name="department_id" ref="dept_radio"/>
         </record>
         <record id="doc_berrada" model="hospital.doctor">
             <field name="name">Dr. Amina BERRADA</field>
             <field name="gender">female</field>
-            <field name="specialization">Interniste</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_interniste'))]"/>
             <field name="department_id" ref="dept_interne"/>
         </record>
         <record id="doc_benjelloun" model="hospital.doctor">
             <field name="name">Dr. Karim BENJELLOUN</field>
             <field name="gender">male</field>
-            <field name="specialization">Dermatologue</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_dermato'))]"/>
             <field name="department_id" ref="dept_dermato"/>
         </record>
         <record id="doc_alaoui" model="hospital.doctor">
             <field name="name">Dr. Nadia ALAOUI</field>
             <field name="gender">female</field>
-            <field name="specialization">ORL</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_orl'))]"/>
             <field name="department_id" ref="dept_orl"/>
         </record>
         <record id="doc_senhaji" model="hospital.doctor">
             <field name="name">Dr. Omar SENHAJI</field>
             <field name="gender">male</field>
-            <field name="specialization">Ophtalmologue</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_ophtalmo'))]"/>
             <field name="department_id" ref="dept_ophtalmo"/>
         </record>
         <record id="doc_benkirane" model="hospital.doctor">
             <field name="name">Dr. Leila BENKIRANE</field>
             <field name="gender">female</field>
-            <field name="specialization">Psychiatre</field>
+            <field name="specialization_ids" eval="[(4, ref('spec_psy'))]"/>
             <field name="department_id" ref="dept_psy"/>
         </record>
 
@@ -372,24 +412,158 @@
         </record>
 
         <!-- ========================================================= -->
-        <!-- MEDICINES -->
+        <!-- MEDICINES (20) -->
         <!-- ========================================================= -->
-        <record id="med_1" model="hospital.medicine">
-            <field name="name">Paracétamol 500mg</field>
+        <record id="med_paracetamol" model="hospital.medicine">
+            <field name="name">Paracétamol</field>
+            <field name="generic_name">Paracetamol</field>
             <field name="category">painkiller</field>
             <field name="dosage_form">tablet</field>
-            <field name="unit_price">15.50</field>
+            <field name="strength">500mg</field>
+            <field name="unit_price">15.00</field>
+            <field name="stock_quantity">1000</field>
+        </record>
+        <record id="med_ibuprofene" model="hospital.medicine">
+            <field name="name">Ibuprofène</field>
+            <field name="generic_name">Ibuprofen</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">tablet</field>
+            <field name="strength">400mg</field>
+            <field name="unit_price">25.00</field>
             <field name="stock_quantity">500</field>
         </record>
-        <record id="med_2" model="hospital.medicine">
-            <field name="name">Ibuprofène 400mg</field>
-            <field name="category">painkiller</field>
-            <field name="unit_price">25.00</field>
-        </record>
-         <record id="med_3" model="hospital.medicine">
-            <field name="name">Amoxicilline 500mg</field>
+        <record id="med_amoxicilline" model="hospital.medicine">
+            <field name="name">Amoxicilline</field>
+            <field name="generic_name">Amoxicillin</field>
             <field name="category">antibiotic</field>
+            <field name="dosage_form">capsule</field>
+            <field name="strength">1g</field>
             <field name="unit_price">45.00</field>
+            <field name="stock_quantity">300</field>
+        </record>
+        <record id="med_augmentin" model="hospital.medicine">
+            <field name="name">Augmentin</field>
+            <field name="generic_name">Amoxicillin + Clavulanic Acid</field>
+            <field name="category">antibiotic</field>
+            <field name="dosage_form">tablet</field>
+            <field name="strength">1g</field>
+            <field name="unit_price">90.00</field>
+            <field name="stock_quantity">200</field>
+        </record>
+        <record id="med_aspegic" model="hospital.medicine">
+            <field name="name">Aspegic</field>
+            <field name="generic_name">Acetylsalicylic Acid</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">upsa</field>
+            <field name="strength">1000mg</field>
+            <field name="unit_price">20.00</field>
+            <field name="stock_quantity">400</field>
+        </record>
+        <record id="med_smecta" model="hospital.medicine">
+            <field name="name">Smecta</field>
+            <field name="generic_name">Diosmectite</field>
+            <field name="category">other</field>
+            <field name="dosage_form">powder</field>
+            <field name="strength">3g</field>
+            <field name="unit_price">30.00</field>
+            <field name="stock_quantity">150</field>
+        </record>
+        <record id="med_spasfon" model="hospital.medicine">
+            <field name="name">Spasfon</field>
+            <field name="generic_name">Phloroglucinol</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">tablet</field>
+            <field name="strength">80mg</field>
+            <field name="unit_price">35.00</field>
+            <field name="stock_quantity">300</field>
+        </record>
+        <record id="med_doliprane_sir" model="hospital.medicine">
+            <field name="name">Doliprane Sirop</field>
+            <field name="generic_name">Paracetamol</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">syrup</field>
+            <field name="strength">2.4%</field>
+            <field name="unit_price">18.00</field>
+            <field name="stock_quantity">200</field>
+        </record>
+        <record id="med_betadine" model="hospital.medicine">
+            <field name="name">Bétadine</field>
+            <field name="generic_name">Povidone-iodine</field>
+            <field name="category">antiseptic</field>
+            <field name="dosage_form">solution</field>
+            <field name="strength">10%</field>
+            <field name="unit_price">40.00</field>
+            <field name="stock_quantity">100</field>
+        </record>
+        <record id="med_voltaréne" model="hospital.medicine">
+            <field name="name">Voltarène</field>
+            <field name="generic_name">Diclofenac</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">injection</field>
+            <field name="strength">75mg</field>
+            <field name="unit_price">50.00</field>
+            <field name="stock_quantity">120</field>
+        </record>
+        <record id="med_vit_c" model="hospital.medicine">
+            <field name="name">Vitamine C</field>
+            <field name="generic_name">Ascorbic Acid</field>
+            <field name="category">vitamin</field>
+            <field name="dosage_form">tablet</field>
+            <field name="strength">1000mg</field>
+            <field name="unit_price">20.00</field>
+            <field name="stock_quantity">600</field>
+        </record>
+        <record id="med_omeprazole" model="hospital.medicine">
+            <field name="name">Oméprazole</field>
+            <field name="generic_name">Omeprazole</field>
+            <field name="category">other</field>
+            <field name="dosage_form">capsule</field>
+            <field name="strength">20mg</field>
+            <field name="unit_price">60.00</field>
+            <field name="stock_quantity">250</field>
+        </record>
+        <record id="med_ventoline" model="hospital.medicine">
+            <field name="name">Ventoline</field>
+            <field name="generic_name">Salbutamol</field>
+            <field name="category">other</field>
+            <field name="dosage_form">inhaler</field>
+            <field name="strength">100mcg</field>
+            <field name="unit_price">55.00</field>
+            <field name="stock_quantity">80</field>
+        </record>
+        <record id="med_efferalgan" model="hospital.medicine">
+            <field name="name">Efferalgan</field>
+            <field name="generic_name">Paracetamol</field>
+            <field name="category">painkiller</field>
+            <field name="dosage_form">effervescent</field>
+            <field name="strength">1g</field>
+            <field name="unit_price">19.00</field>
+            <field name="stock_quantity">350</field>
+        </record>
+        <record id="med_flagyl" model="hospital.medicine">
+            <field name="name">Flagyl</field>
+            <field name="generic_name">Metronidazole</field>
+            <field name="category">antibiotic</field>
+            <field name="dosage_form">tablet</field>
+            <field name="strength">500mg</field>
+            <field name="unit_price">42.00</field>
+            <field name="stock_quantity">140</field>
+        </record>
+
+        <!-- ========================================================= -->
+        <!-- INSURANCES PROVIDERS -->
+        <!-- ========================================================= -->
+
+        <record id="provider_cnss" model="hospital.insurance.provider">
+            <field name="name">CNSS</field>
+            <field name="phone">0522548965</field>
+            <field name="email">contact@cnss.ma</field>
+        </record>
+
+        <record id="provider_cnops" model="hospital.insurance.provider">
+            <field name="name">CNOPS</field>
+            <field name="phone">0537895236</field>
+            <field name="email">contact@cnops.ma</field>
         </record>
 
         <!-- ========================================================= -->
@@ -398,7 +572,7 @@
         <record id="ins_1" model="hospital.insurance">
             <field name="policy_number">CNSS2025001234</field>
             <field name="patient_id" ref="pat_1"/> <!-- Mehdi -->
-            <field name="provider">CNSS</field>
+            <field name="provider_id" ref="provider_cnss"/>
             <field name="coverage_percentage">70</field>
             <field name="start_date">2025-01-01</field>
             <field name="end_date">2025-12-31</field>
@@ -406,7 +580,7 @@
         <record id="ins_2" model="hospital.insurance">
             <field name="policy_number">CNOPS2025005678</field>
             <field name="patient_id" ref="pat_2"/> <!-- Zineb -->
-            <field name="provider">CNOPS</field>
+            <field name="provider_id" ref="provider_cnops"/>
             <field name="coverage_percentage">80</field>
             <field name="start_date">2025-01-01</field>
             <field name="end_date">2025-12-31</field>
@@ -464,6 +638,47 @@
         <!-- ========================================================= -->
         <!-- PRESCRIPTIONS -->
         <!-- ========================================================= -->
+
+        <!-- ========================================================= -->
+        <!-- DOSAGES -->
+        <!-- ========================================================= -->
+        <record id="dos_500mg" model="hospital.dosage">
+            <field name="name">500mg</field>
+        </record>
+        <record id="dos_1000mg" model="hospital.dosage">
+            <field name="name">1000mg</field>
+            <field name="abbreviation">1g</field>
+        </record>
+        <record id="dos_250mg" model="hospital.dosage">
+            <field name="name">250mg</field>
+        </record>
+        <record id="dos_400mg" model="hospital.dosage">
+            <field name="name">400mg</field>
+        </record>
+
+        <!-- ========================================================= -->
+        <!-- FREQUENCIES -->
+        <!-- ========================================================= -->
+        <record id="freq_tid" model="hospital.frequency">
+            <field name="name">3 times a day</field>
+            <field name="code">TID</field>
+        </record>
+        <record id="freq_bid" model="hospital.frequency">
+            <field name="name">Twice daily</field>
+            <field name="code">BID</field>
+        </record>
+        <record id="freq_qd" model="hospital.frequency">
+            <field name="name">Once daily</field>
+            <field name="code">QD</field>
+        </record>
+        <record id="freq_prn" model="hospital.frequency">
+            <field name="name">As needed</field>
+            <field name="code">PRN</field>
+        </record>
+
+        <!-- ========================================================= -->
+        <!-- PRESCRIPTIONS -->
+        <!-- ========================================================= -->
         <record id="presc_1" model="hospital.prescription">
             <field name="patient_id" ref="pat_1"/>
             <field name="doctor_id" ref="doc_alami"/>
@@ -472,10 +687,10 @@
         </record>
         <record id="presc_line_1" model="hospital.prescription.line">
             <field name="prescription_id" ref="presc_1"/>
-            <field name="medicine_id" ref="med_1"/> <!-- Paracetamol -->
+            <field name="medicine_id" ref="med_paracetamol"/> <!-- Paracetamol -->
             <field name="name">Paracétamol 500mg</field>
-            <field name="dosage">1000mg</field>
-            <field name="frequency">3 times a day</field>
+            <field name="dosage_id" ref="dos_1000mg"/>
+            <field name="frequency_id" ref="freq_tid"/>
             <field name="duration_days">5</field>
             <field name="quantity">15</field>
         </record>
@@ -488,19 +703,19 @@
         </record>
         <record id="presc_line_2" model="hospital.prescription.line">
             <field name="prescription_id" ref="presc_2"/>
-            <field name="medicine_id" ref="med_3"/> <!-- Amoxicilline -->
+            <field name="medicine_id" ref="med_amoxicilline"/> <!-- Amoxicilline -->
             <field name="name">Amoxicilline 500mg</field>
-            <field name="dosage">500mg</field>
-            <field name="frequency">2 times a day</field>
+            <field name="dosage_id" ref="dos_500mg"/>
+            <field name="frequency_id" ref="freq_bid"/>
             <field name="duration_days">7</field>
             <field name="quantity">14</field>
         </record>
         <record id="presc_line_3" model="hospital.prescription.line">
             <field name="prescription_id" ref="presc_2"/>
-            <field name="medicine_id" ref="med_1"/> <!-- Paracetamol -->
+            <field name="medicine_id" ref="med_paracetamol"/> <!-- Paracetamol -->
             <field name="name">Paracétamol 500mg</field>
-            <field name="dosage">250mg</field>
-            <field name="frequency">As needed</field>
+            <field name="dosage_id" ref="dos_250mg"/>
+            <field name="frequency_id" ref="freq_prn"/>
             <field name="quantity">10</field>
         </record>
 
@@ -513,10 +728,10 @@
         </record>
         <record id="presc_line_4" model="hospital.prescription.line">
             <field name="prescription_id" ref="presc_3"/>
-            <field name="medicine_id" ref="med_2"/> <!-- Ibuprofène -->
+            <field name="medicine_id" ref="med_ibuprofene"/> <!-- Ibuprofène -->
             <field name="name">Ibuprofène 400mg</field>
-            <field name="dosage">400mg</field>
-            <field name="frequency">Twice daily</field>
+            <field name="dosage_id" ref="dos_400mg"/>
+            <field name="frequency_id" ref="freq_bid"/>
             <field name="duration_days">10</field>
         </record>
 

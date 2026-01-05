@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Dosage Views -->
+    <record id="view_hospital_dosage_tree" model="ir.ui.view">
+        <field name="name">hospital.dosage.tree</field>
+        <field name="model">hospital.dosage</field>
+        <field name="arch" type="xml">
+            <tree string="Dosages" editable="bottom">
+                <field name="name"/>
+                <field name="abbreviation"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hospital_dosage" model="ir.actions.act_window">
+        <field name="name">Dosages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.dosage</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new dosage.
+            </p>
+        </field>
+    </record>
+
+    <!-- Frequency Views -->
+    <record id="view_hospital_frequency_tree" model="ir.ui.view">
+        <field name="name">hospital.frequency.tree</field>
+        <field name="model">hospital.frequency</field>
+        <field name="arch" type="xml">
+            <tree string="Frequencies" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hospital_frequency" model="ir.actions.act_window">
+        <field name="name">Frequencies</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.frequency</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new frequency.
+            </p>
+        </field>
+    </record>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_prescription_config"
+              name="Configuration"
+              parent="menu_gestion_hospitaliere_root"
+              sequence="100"/>
+
+    <menuitem id="menu_prescription_dosage"
+              name="Dosages"
+              parent="menu_prescription_config"
+              action="action_hospital_dosage"
+              sequence="10"/>
+
+    <menuitem id="menu_prescription_frequency"
+              name="Frequencies"
+              parent="menu_prescription_config"
+              action="action_hospital_frequency"
+              sequence="20"/>
+
+</odoo>

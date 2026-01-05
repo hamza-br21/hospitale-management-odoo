@@ -11,7 +11,7 @@ class HospitalDoctor(models.Model):
         ('male', 'Male'),
         ('female', 'Female'),
     ], string='Gender', default='male', tracking=True)
-    specialization = fields.Char(string='Specialization', tracking=True)
+    specialization_ids = fields.Many2many('hospital.specialization', string='Specializations', tracking=True)
     phone = fields.Char(string='Phone')
     email = fields.Char(string='Email')
     department_id = fields.Many2one('hospital.department', string="Department", tracking=True)

@@ -92,8 +92,8 @@
                             <strong class="text-dark text-uppercase mb-2 d-block" style="letter-spacing: 1px;">Médecin Prescripteur</strong>
                             <h5 class="mb-1">Dr. <span t-field="doc.doctor_id.name"/></h5>
                             <div class="small text-muted">
-                                <span t-field="doc.doctor_id.specialization"/>
-                                <t t-if="doc.doctor_id.specialization and doc.doctor_id.department_id"> - </t>
+                                 <span t-esc="', '.join(doc.doctor_id.specialization_ids.mapped('name'))"/>
+                                <t t-if="doc.doctor_id.specialization_ids and doc.doctor_id.department_id"> - </t>
                                 <span t-field="doc.doctor_id.department_id.name"/>
                             </div>
                         </div>
@@ -114,8 +114,8 @@
                     <tbody>
                         <tr t-foreach="doc.prescription_line_ids" t-as="line">
                             <td style="vertical-align: middle;"><span t-field="line.name" style="font-weight: 500;"/></td>
-                            <td style="vertical-align: middle;"><span t-field="line.dosage"/></td>
-                            <td style="vertical-align: middle;"><span t-field="line.frequency"/></td>
+                            <td style="vertical-align: middle;"><span t-field="line.dosage_id.name"/></td>
+                            <td style="vertical-align: middle;"><span t-field="line.frequency_id.name"/></td>
                             <td style="vertical-align: middle;" class="text-end"><span t-field="line.quantity"/></td>
                             <td style="vertical-align: middle;"><span t-field="line.note" class="text-muted small font-italic"/></td>
                         </tr>

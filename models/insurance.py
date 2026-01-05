@@ -11,7 +11,7 @@ class HospitalInsurance(models.Model):
 
     policy_number = fields.Char(string='Policy Number', required=True, tracking=True)
     patient_id = fields.Many2one('hospital.patient', string="Patient", required=True, tracking=True)
-    provider = fields.Char(string='Insurance Provider', required=True, tracking=True)
+    provider_id = fields.Many2one('hospital.insurance.provider', string='Insurance Provider', required=True, tracking=True)
     coverage_percentage = fields.Float(string='Coverage %', default=80.0, tracking=True, help='Percentage of costs covered by insurance')
     start_date = fields.Date(string='Start Date', required=True, tracking=True)
     end_date = fields.Date(string='End Date', tracking=True)

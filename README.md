@@ -129,3 +129,30 @@ Le module inclut des données complètes :
 - **Kanban** : Rendez-vous (par état), Salles (avec disponibilité)
 - **Calendar** : Planning des rendez-vous
 - **Dashboard** : Vue d'ensemble (menu principal)
+
+---
+
+# English Overview
+
+**Gestion Hospitalière** is a comprehensive Odoo 17 module designed to manage hospital activities with advanced features.
+
+## Key Features
+
+### Patient Management
+- **Complete Patient Records**: Name, DOB, automatic age, blood group, contact.
+- **Medical History**: Track appointments, admissions, prescriptions, and invoices.
+- **Health Insurance**: Policy management with automatic coverage calculation.
+
+### Medical Management
+- **Doctors**: Profiles with specialization and photo.
+- **Appointments**: Kanban/Calendar views, configurable duration.
+- **Prescriptions**: Integrated medicine catalog, dosage management.
+
+### Hospital Infrastructure
+- **Wards/Rooms**: Multiple types (General, ICU, etc.), daily rates.
+- **Beds**: Status tracking (Free/Occupied/Maintenance).
+- **Departments**: Organized by specialty.
+
+### Auteurs / Authors
+- **Hamza**
+- **Mohamed**

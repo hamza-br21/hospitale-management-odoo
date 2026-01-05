@@ -1,18 +1,49 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hospital_patient,hospital.patient,model_hospital_patient,base.group_user,1,1,1,1
-access_hospital_doctor,hospital.doctor,model_hospital_doctor,base.group_user,1,1,1,1
-access_hospital_appointment,hospital.appointment,model_hospital_appointment,base.group_user,1,1,1,1
-access_hospital_department,hospital.department,model_hospital_department,base.group_user,1,1,1,1
-access_hospital_bed,hospital.bed,model_hospital_bed,base.group_user,1,1,1,1
-access_hospital_admission,hospital.admission,model_hospital_admission,base.group_user,1,1,1,1
-access_hospital_prescription,hospital.prescription,model_hospital_prescription,base.group_user,1,1,1,1
-access_hospital_prescription_line,hospital.prescription.line,model_hospital_prescription_line,base.group_user,1,1,1,1
-access_hospital_bill,hospital.bill,model_hospital_bill,base.group_user,1,1,1,1
-access_hospital_bill_line,hospital.bill.line,model_hospital_bill_line,base.group_user,1,1,1,1
-access_hospital_medicine,hospital.medicine,model_hospital_medicine,base.group_user,1,1,1,1
-access_hospital_room,hospital.room,model_hospital_room,base.group_user,1,1,1,1
-access_hospital_insurance,hospital.insurance,model_hospital_insurance,base.group_user,1,1,1,1
-access_hospital_dashboard,hospital.dashboard,model_hospital_dashboard,base.group_user,1,1,1,1
-access_hospital_notification,hospital.notification,model_hospital_notification,base.group_user,1,1,1,1
-access_hospital_analytics,hospital.analytics,model_hospital_analytics,base.group_user,1,1,1,1
-access_hospital_external_api,hospital.external.api,model_hospital_external_api,base.group_user,1,1,1,1
+access_hospital_department_user,hospital.department user,model_hospital_department,group_hospital_user,1,0,0,0
+access_hospital_doctor_user,hospital.doctor user,model_hospital_doctor,group_hospital_user,1,0,0,0
+access_hospital_room_user,hospital.room user,model_hospital_room,group_hospital_user,1,0,0,0
+access_hospital_bed_user,hospital.bed user,model_hospital_bed,group_hospital_user,1,0,0,0
+access_hospital_medicine_user,hospital.medicine user,model_hospital_medicine,group_hospital_user,1,0,0,0
+access_hospital_patient_receptionist,hospital.patient receptionist,model_hospital_patient,group_hospital_receptionist,1,1,1,1
+access_hospital_appointment_receptionist,hospital.appointment receptionist,model_hospital_appointment,group_hospital_receptionist,1,1,1,1
+access_hospital_admission_receptionist,hospital.admission receptionist,model_hospital_admission,group_hospital_receptionist,1,1,1,0
+access_hospital_bill_receptionist,hospital.bill receptionist,model_hospital_bill,group_hospital_receptionist,1,1,1,1
+access_hospital_bill_line_receptionist,hospital.bill.line receptionist,model_hospital_bill_line,group_hospital_receptionist,1,1,1,1
+access_hospital_insurance_receptionist,hospital.insurance receptionist,model_hospital_insurance,group_hospital_receptionist,1,1,1,1
+access_hospital_prescription_receptionist,hospital.prescription receptionist,model_hospital_prescription,group_hospital_receptionist,1,0,0,0
+access_hospital_prescription_line_receptionist,hospital.prescriptioninfo receptionist,model_hospital_prescription_line,group_hospital_receptionist,1,0,0,0
+access_hospital_patient_doctor,hospital.patient doctor,model_hospital_patient,group_hospital_doctor,1,1,0,0
+access_hospital_appointment_doctor,hospital.appointment doctor,model_hospital_appointment,group_hospital_doctor,1,1,0,0
+access_hospital_admission_doctor,hospital.admission doctor,model_hospital_admission,group_hospital_doctor,1,1,1,0
+access_hospital_bed_doctor,hospital.bed doctor,model_hospital_bed,group_hospital_doctor,1,1,0,0
+access_hospital_prescription_doctor,hospital.prescription doctor,model_hospital_prescription,group_hospital_doctor,1,1,1,1
+access_hospital_prescription_line_doctor,hospital.prescription.line doctor,model_hospital_prescription_line,group_hospital_doctor,1,1,1,1
+access_hospital_bill_doctor,hospital.bill doctor,model_hospital_bill,group_hospital_doctor,1,0,0,0
+access_hospital_bill_line_doctor,hospital.bill.line doctor,model_hospital_bill_line,group_hospital_doctor,1,0,0,0
+access_hospital_insurance_doctor,hospital.insurance doctor,model_hospital_insurance,group_hospital_doctor,1,0,0,0
+access_hospital_patient_manager,hospital.patient manager,model_hospital_patient,group_hospital_manager,1,1,1,1
+access_hospital_doctor_manager,hospital.doctor manager,model_hospital_doctor,group_hospital_manager,1,1,1,1
+access_hospital_appointment_manager,hospital.appointment manager,model_hospital_appointment,group_hospital_manager,1,1,1,1
+access_hospital_department_manager,hospital.department manager,model_hospital_department,group_hospital_manager,1,1,1,1
+access_hospital_bed_manager,hospital.bed manager,model_hospital_bed,group_hospital_manager,1,1,1,1
+access_hospital_admission_manager,hospital.admission manager,model_hospital_admission,group_hospital_manager,1,1,1,1
+access_hospital_prescription_manager,hospital.prescription manager,model_hospital_prescription,group_hospital_manager,1,1,1,1
+access_hospital_prescription_line_manager,hospital.prescription.line manager,model_hospital_prescription_line,group_hospital_manager,1,1,1,1
+access_hospital_bill_manager,hospital.bill manager,model_hospital_bill,group_hospital_manager,1,1,1,1
+access_hospital_bill_line_manager,hospital.bill.line manager,model_hospital_bill_line,group_hospital_manager,1,1,1,1
+access_hospital_medicine_manager,hospital.medicine manager,model_hospital_medicine,group_hospital_manager,1,1,1,1
+access_hospital_room_manager,hospital.room manager,model_hospital_room,group_hospital_manager,1,1,1,1
+access_hospital_insurance_manager,hospital.insurance manager,model_hospital_insurance,group_hospital_manager,1,1,1,1
+access_hospital_dashboard_manager,hospital.dashboard manager,model_hospital_dashboard,group_hospital_manager,1,1,1,1
+access_hospital_notification_manager,hospital.notification manager,model_hospital_notification,group_hospital_manager,1,1,1,1
+access_hospital_analytics_manager,hospital.analytics manager,model_hospital_analytics,group_hospital_manager,1,1,1,1
+access_hospital_external_api_manager,hospital.external.api manager,model_hospital_external_api,group_hospital_manager,1,1,1,1
+access_hospital_insurance_provider_receptionist,hospital.insurance.provider receptionist,model_hospital_insurance_provider,group_hospital_receptionist,1,1,1,1
+access_hospital_insurance_provider_doctor,hospital.insurance.provider doctor,model_hospital_insurance_provider,group_hospital_doctor,1,0,0,0
+access_hospital_insurance_provider_manager,hospital.insurance.provider manager,model_hospital_insurance_provider,group_hospital_manager,1,1,1,1
+access_hospital_specialization_receptionist,hospital.specialization receptionist,model_hospital_specialization,group_hospital_receptionist,1,0,0,0
+access_hospital_specialization_manager,hospital.specialization manager,model_hospital_specialization,group_hospital_manager,1,1,1,1
+access_hospital_dosage_user,hospital.dosage user,model_hospital_dosage,group_hospital_user,1,0,0,0
+access_hospital_dosage_manager,hospital.dosage manager,model_hospital_dosage,group_hospital_manager,1,1,1,1
+access_hospital_frequency_user,hospital.frequency user,model_hospital_frequency,group_hospital_user,1,0,0,0
+access_hospital_frequency_manager,hospital.frequency manager,model_hospital_frequency,group_hospital_manager,1,1,1,1

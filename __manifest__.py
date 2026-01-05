@@ -55,6 +55,9 @@
         'views/prescription_views.xml',
         'views/bill_views.xml',
         'views/insurance_views.xml',
+        'views/insurance_provider_views.xml',
+        'views/specialization_views.xml',
+        'views/prescription_config_views.xml',
 
         # Reports
         'reports/prescription_report.xml',
